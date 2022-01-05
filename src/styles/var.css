@@ -1,0 +1,9 @@
+body {
+    --main-background: rgba(13, 13, 9, 0.16);
+    --SearchBar-background: rgba(0, 0, 0, .36);
+    --SearchList-background: rgba(0, 0, 0, .6);
+    --Modal-background: rgba(0, 0, 0, .6);
+    --Window-background: rgba(0, 0, 0, .6);
+    --WindowHeader-background: rgba(255, 255, 255, .3);
+    --AppList-background: rgba(255, 255, 255, .36);
+}

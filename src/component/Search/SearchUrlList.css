@@ -1,0 +1,85 @@
+.SearchUrlList {
+    position: absolute;
+    top: 50px;
+    left: 6px;
+    width: fit-content;
+    height: 290px;
+    padding: 9px 13px 6px 23px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background-color: var(--SearchList-background);
+    box-shadow: 3px 6px 16px rgba(0,0,0,.36);
+    cursor: pointer;
+    z-index: 3;
+    animation: fade-in;  
+    animation-duration: .3s;
+}
+@keyframes fade-in {  
+    0% {opacity: 0; transform: translateY(100%);}
+    50% {opacity: 0.6;} 
+    100% {opacity: 1;} 
+}  
+.SearchUrlList:before {
+    content: '';
+    position: absolute;
+    left: 13.6px;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    border-width: 6.9px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-width: 9.6px;
+    border-bottom-color: currentColor;
+    color: var(--SearchList-background);
+    z-index: 2;
+}
+.SearchUrlList-about {
+    padding: 6px 0;
+    font-size: 13px;
+}  
+.SearchUrlList-row {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}  
+.SearchUrlList span {
+    width: 50px;
+    padding-right: 6px;
+    border-right: 1px #fff solid;
+    text-align: start;
+    color: #fff; 
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.SearchUrlList-row ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+}
+.SearchUrlList-row li {
+    position: relative;
+    width: 69px;
+    list-style: none;
+    color: #ddd;
+    font-size: 13.6px;
+    transition: transform cubic-bezier(0.23, 1, 0.320, 1) .2s;
+}
+.SearchUrlList-row li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 69px;
+    height: 36px;
+}
+.SearchUrlList-row li:hover {
+    color: #fff;
+    transform: scale(1.36);
+    font-weight: bold;
+}
