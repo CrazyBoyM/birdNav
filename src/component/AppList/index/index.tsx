@@ -27,9 +27,9 @@ export const AppList = () => {
       e.target.src = errorImg
     }
   
-    const runApp = (appData: any) => {
+    const runApp = (appData: any, appIndex: number) => {
       if (appData.type === "inner") {
-        // TODO: window
+        openWindow(appData, appIndex, userAppList, setUserAppList)
       } else {
         window.open(appData.link)
       }
@@ -41,24 +41,12 @@ export const AppList = () => {
             <SettingOne theme="outline" size="30" fill="slateblue" strokeWidth={3}/>
           </div>
           {
-            preAppList &&
-              preAppList.map((appData: app, appIndex) => (
-                <div 
-                  className="AppList-app center" 
-                  key={ appIndex } 
-                  onClick={ () => openWindow(appData, appIndex, userAppList, setUserAppList) } 
-                >
-                  <img className="AppList-app-logo" src={ appData.logo } alt={ appData.name } onError={ onError }></img>
-                </div>
-              ))
-          }
-          {
             userAppList &&
-              userAppList.map((appData: app, appIndex) => (
+              userAppList.map((appData: any, appIndex) => (
                 <div 
                   className="AppList-app center" 
                   key={ appIndex }
-                  onClick={ () => openWindow(appData, appIndex, userAppList, setUserAppList) } 
+                  onClick={ () => runApp(appData, appIndex) } 
                   onContextMenu={ e => {
                     e.preventDefault()
                     editApp(appData, appIndex, userAppList, setUserAppList)
