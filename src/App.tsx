@@ -4,6 +4,8 @@ import { initLocalData } from '@/utils/init'
 import { AppList } from '@/component/AppList/index'
 import '@icon-park/react/styles/index.css';
 import { Background } from './component/Background';
+import Store from './store';
+import TodoList from './component/TodoList';
 
 const Logo = () => {
   return (
@@ -17,14 +19,15 @@ const Logo = () => {
 
 const App = () => {
   return (
-    <>
+    <Store>
       <div className="main noselect">
         <Search />
+        <TodoList />
         <AppList />
-        <Logo />
+        {/* <Logo /> */}
       </div>
       <Background />
-    </>
+    </Store>
   )
 }
 

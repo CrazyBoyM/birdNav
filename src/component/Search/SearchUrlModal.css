@@ -52,24 +52,6 @@
     position: absolute;
     bottom: 36px;
 }
-.SearchUrlModal_btns > button {
-    margin: 0 16px;
-    padding: 6px 19px;
-    color: #eee;
-    letter-spacing: 2.3px;
-    background: inherit;
-    outline: none;
-    border-radius: 6px;
-    border: 2px solid #ddd;
-    box-shadow: 3px 3px 3px rgba(0,0,0,.1);
-    transition: translate 0.3s;
-    cursor: pointer;
-}
-.SearchUrlModal_btns > .active {
-    color: #fff;
-    border: 2px solid #fe3369;
-    background-color: #fe3369;
-}
 .SearchUrlModal_btns > button:hover {
     transform: translate(0, -3px);
 }

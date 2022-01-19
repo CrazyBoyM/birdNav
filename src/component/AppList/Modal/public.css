@@ -70,11 +70,18 @@
     transition: translate 0.3s;
     cursor: pointer;
 }
-.AppModal_btns > .active {
+.AppModal_btns > .confirm {
+    color: #fff;
+    border: 2px solid #3afe33;
+    background-color: #06ac00;
+}
+
+.AppModal_btns > .delete {
     color: #fff;
     border: 2px solid #fe3369;
     background-color: #fe3369;
 }
+
 .AppModal_btns > button:hover {
     transform: translate(0, -3px);
 }

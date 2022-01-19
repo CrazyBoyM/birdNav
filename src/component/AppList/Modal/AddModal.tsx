@@ -2,6 +2,8 @@ import { useState } from "react"
 import ReactDOM from "react-dom"
 import { saveUserAppList } from "@/utils/data"
 import './public.css'
+import { getMaxZindex } from "@/store/global"
+
 
 export const addApp = (appList: any, setData: any) => {
 
@@ -48,7 +50,7 @@ const AddModal = (props : any) => {
   }
 
   return (
-    <div className="AppModal">
+    <div className="AppModal" style={{ zIndex: getMaxZindex() }}>
       <span className="AppModal_title rowcenter">添加应用</span>
       <div className="AppModal_row">
         <span>APP名称：</span>
@@ -116,18 +118,18 @@ const AddModal = (props : any) => {
             className="radio_type"
             type="radio"
             value={ newAppData.type } 
-            checked={ newAppData.type === "outter" }
+            checked={ newAppData.type === "outer" }
             onChange={ () =>
               setNewAppData({
                 ...newAppData,
-                type: 'outter'
+                type: 'outer'
               })
             } />直接跳转
         </label>
       </div>
       <div className="AppModal_btns">
           <button onClick={ onCancel }>取消</button>
-          <button className="active" onClick={ () => onSubmit() }>确认</button>
+          <button className="confirm" onClick={ () => onSubmit() }>确认</button>
       </div>
     </div>
   )

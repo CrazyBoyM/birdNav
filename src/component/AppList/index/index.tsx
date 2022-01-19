@@ -6,22 +6,25 @@ import { editApp } from "../Modal/EditModal"
 import './index.css'
 import errorImg from "./icon/error.png"
 import { openWindow } from "../Window"
+import { useLocalStorageState } from "@/hooks/useLocalStorageState"
+import { defaultUserAppList } from "@/store/app"
 
 export const AppList = () => { 
-    const [preAppList, setPreAppList] = useState([])
-    const [userAppList, setUserAppList] = useState([])
+    // const [preAppList, setPreAppList] = useState([])
+    const [userAppList, setUserAppList] = useLocalStorageState('userAppList', defaultUserAppList)
     
-    useEffect(() => {
-      readPreAppList(setPreAppList)
-      readUserAppList(setUserAppList)
-    }, [])
+    // useEffect(() => {
+    //   readPreAppList(setPreAppList)
+    //   readUserAppList(setUserAppList)
+    //   setTimeout(()=>console.log(userAppList), 300)
+    // }, [])
     
-    interface app {
-      name: string
-      link: string
-      logo: string
-      type: string
-    }
+    // interface app {
+    //   name: string
+    //   link: string
+    //   logo: string
+    //   type: string
+    // }
     
     const onError = (e: any) => {;
       e.target.src = errorImg
@@ -36,13 +39,15 @@ export const AppList = () => {
     }
 
     return (
+      <>
+        <div id="App-window"></div>
         <section className="AppList-bottom">
           <div className="AppList-app center" onClick={ () => {} }>
             <SettingOne theme="outline" size="30" fill="slateblue" strokeWidth={3}/>
           </div>
           {
             userAppList &&
-              userAppList.map((appData: any, appIndex) => (
+              userAppList.map((appData : any, appIndex : number) => (
                 <div 
                   className="AppList-app center" 
                   key={ appIndex }
@@ -59,5 +64,6 @@ export const AppList = () => {
             <AddOne theme="outline" size="30" fill="slateblue" strokeWidth={3}/>
           </div>
         </section> 
+      </>
     )
 } 

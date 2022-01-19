@@ -1,3 +1,10 @@
+#App-window {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+}
+
 .AppList-bottom {
     display: flex;
     justify-content: center;

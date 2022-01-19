@@ -1,30 +1,21 @@
+import { useLocalStorageState } from '@/hooks/useLocalStorageState'
+import { defaultCurrentSearch } from '@/store/search'
 import { useState, useEffect } from 'react'
 import { readCurrentSearchUrl, saveCurrentSearchUrl } from '../../utils/data'
 import './index.css'
 import { SearchUrlList } from './SearchUrlList'
 
 const Search = () => {
-  const [searchUrl, setSearchUrl] = useState({
-    title: '',
-    describtion: '',
-    url: ''
-  })
+  const [searchUrl, setSearchUrl] = useLocalStorageState('currentSearch', defaultCurrentSearch)
   const [keyword, setKeyWord] = useState('') 
   const [showSearchUrlList, setShowSearchUrlList] = useState(false)
 
   // go to search page
-  const handleSearchGo = () => {
+  const handleSearchGo = (e : any) => {
+    e.preventDefault()
     const actionUrl = searchUrl.url.replace('$keyword$', keyword)
     window.open(actionUrl)
   }
-  
-  useEffect(() => {
-    readCurrentSearchUrl((data : any) => setSearchUrl(data))
-  }, [])
-
-  useEffect(() => {
-    saveCurrentSearchUrl(searchUrl)
-  }, [searchUrl])
 
   return (
     <div className="Search">

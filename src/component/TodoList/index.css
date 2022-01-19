@@ -1,0 +1,134 @@
+.todo-container {
+  margin-top: 36px;
+  width: 100%;
+}
+
+.todo {
+  margin: 0 23px;
+  width: 396px;
+  height: 369px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--TodoList-background);
+  border-radius: 0 0 0 13px;
+}
+
+.todo-header {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #ddd;
+}
+
+.todo-header-title {
+  width: 160px;
+  padding: 23px;
+  font-size: 23px;
+  letter-spacing: 3px;
+  font-style: italic;
+}
+
+.todo-header-btns {
+  padding-top: 36px;
+  margin-right: -3px;
+  display: flex;
+}
+
+.todo-header-btn {
+  width: 60px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.todo-header-btn:nth-child(1) {
+  border-radius: 16px 0 0 16px;
+}
+.todo-header-btn:nth-child(3) {
+  border-radius: 0 16px 16px 0;
+}
+.todo-header-btn:hover {
+  background-color: rgba(255, 255, 255, .36)
+}
+
+.TodoContent, .DoneContent {
+  display: flex;
+  flex-direction: column;
+  color: #ddd;
+}
+
+.TodoContent-list, .DoneContent-list {
+  margin: 6px 0 16px 0;
+  padding-left: 30px;
+  padding-right: 6px;
+  height: 221px;
+  overflow: auto;
+}
+
+.DoneContent-list {
+  height: 266px;
+}
+
+.TodoContent-item, .DoneContent-item {
+  margin-top: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
+}
+.TodoContent-item:hover, .DoneContent-item:hover {
+  color: #fff;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.TodoContent-item-title, .DoneContent-item-title {
+  width: 256px;
+  height: 36px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow:ellipsis;
+  /* border-bottom: 1px solid #ccc; */
+  user-select: text;
+}
+
+.DoneContent-item-title {
+  color: #eee;
+  text-decoration: line-through;
+}
+
+.TodoContent-item-btns, .DoneContent-item-btns {
+  display: flex;
+  margin-left: 16px;
+}
+
+.TodoContent-item-btn, .DoneContent-item-btn {
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  margin-left: 3px;
+  border-radius: 50%;
+}
+.TodoContent-item-btn:hover, .DoneContent-item-btn:hover {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.TodoContent-add {
+  padding-left: 30px;
+  display: flex;
+  justify-content: center;
+}
+.TodoContent-add > input {
+  width: 106px;
+  margin-right: 36px;
+  text-align: center;
+  color: #eee;
+  font-size: 16px;
+  border-bottom: 1px solid rgb(165, 165, 165);
+  transition: ease-in-out .3s;
+}
+.TodoContent-add > input:focus {
+  width: 256px;
+  border-bottom: 1px solid #fff;
+}

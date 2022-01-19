@@ -1,0 +1,25 @@
+.btn-primary, .btn-confirm, .btn-delete {
+  margin: 0 16px;
+  padding: 6px 19px;
+  color: #eee;
+  letter-spacing: 2.3px;
+  background: inherit;
+  outline: none;
+  border-radius: 6px;
+  border: 2px solid #ddd;
+  box-shadow: 3px 3px 3px rgba(0,0,0,.1);
+  transition: translate 0.3s;
+  cursor: pointer;
+}
+
+.btn-confirm {
+  color: #fff;
+  border: 2px solid #3afe33;
+  background-color: #06ac00;
+}
+
+.btn-delete {
+  color: #fff;
+  border: 2px solid #fe3369;
+  background-color: #fe3369;
+}

@@ -220,7 +220,7 @@ const data = {
     describtion: '百度一下，你就知道',
     url: 'https://www.baidu.com/s?wd=$keyword$'
   },
-  preAppList: [
+  userAppList: [
     {
       appId: 'preApp1',
       name: 'ide',
@@ -232,8 +232,19 @@ const data = {
       x: null,
       y: null
     },
+    {
+      appId: 'preApp2',
+      name: 'paddle',
+      link: 'https://aistudio.baidu.com/',
+      logo: 'https://aistudio.baidu.com/favicon.ico',
+      type: 'outer',
+      width: null,
+      height: null,
+      x: null,
+      y: null
+    },
   ],
-  userAppList: []    
+  // userAppList: []
 }
 
 // localforage.setDriver(localforage.LOCALSTORAGE);
@@ -258,7 +269,7 @@ export const initLocalData = () => {
     console.error('error initing currentSearchUrl')
   })
 
-  setItem('preAppList', data.preAppList)
+  // setItem('preAppList', data.preAppList)
   setItem('userAppList', data.userAppList)
   setItem('inited', true)
 }

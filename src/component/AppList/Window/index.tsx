@@ -6,6 +6,7 @@ import './index.css'
 import closeAppWindow from './icon/closeAppWindow.svg'
 import foldAppWindow from './icon/foldAppWindow.svg'
 import fullScreen from './icon/fullScreen.svg'
+import { getMaxZindex, setMaxZindex } from '@/store/global'
 
 interface app {
   appId: string
@@ -48,7 +49,7 @@ export const openWindow = (appData: app, appIndex: number, appList: any, setList
   }
 
   ReactDOM.render(
-    <Window appData={appData} onClose={onClose} />,
+    <Window appData={appData} onClose={onClose} el={el} />,
     el
   )
 }
@@ -59,8 +60,8 @@ const Window = (props: any) => {
   const WindowWidth = document.body.clientWidth 
   const WindowHeight = document.body.clientHeight
   //初始APP 宽、高
-  const DefAppWidth = appData.width || WindowWidth/1.5
-  const DefAppHeight = appData.height || WindowHeight/1.5
+  const DefAppWidth = appData.width || WindowWidth/1.2
+  const DefAppHeight = appData.height || WindowHeight/1.2
   //初始APP 坐标
   const DefAppLeft = appData.x || WindowWidth/2-DefAppWidth/2
   const DefAppTop = appData.y || WindowHeight/2-DefAppHeight/2
@@ -77,9 +78,9 @@ const Window = (props: any) => {
   })
   const [isMoving, setIsMoving] = useState(false)
   const [isMaximized, setIsMaximized] = useState(false)
-  const [zindex,setZindex] = useState(1000)
+  // const [zindex,setZindex] = useState(999)
 
-  const { AppWidth, AppHeight, AppLeft, AppTop, display, oldState }=state
+  const { AppWidth, AppHeight, AppLeft, AppTop, display, oldState } = state
   
   const stateUpdate = (newState: {}) => setState({...state, ...newState})
 
@@ -256,14 +257,26 @@ const Window = (props: any) => {
   return (
     <div 
       className="AppWindow"
-      style={{width:AppWidth,height:AppHeight,left:AppLeft,top:AppTop,display:display,zIndex:zindex}}
+      style={{width:AppWidth,height:AppHeight,left:AppLeft,top:AppTop,display:display,zIndex:getMaxZindex()}}
+      onClick={ () => {
+          setIsMoving(true)
+          setMaxZindex(getMaxZindex() + 1)  
+          setTimeout(() => setIsMoving(false), 300)
+        }
+      }
+      onDoubleClick={ fullWindow }
     >
-        <div className="AppWindowHeader noselect" id="demo" onClick={() => setZindex(zindex + 1)} onMouseDown={moveWindow}>
+        <div 
+          className="AppWindowHeader noselect"
+          style={ !isMaximized ? { borderRadius: '9.6px 9.6px 0 0' } : {} }
+          id="demo" 
+          onMouseDown={moveWindow}
+        >
             <div className="Title">{ appData.name }</div>
             <div className="Menu">
                 <a onClick={foldWindow}><img src={foldAppWindow} /></a>
                 <a onClick={fullWindow}><img src={fullScreen} /></a>
-                <a onClick={closeWindow}><img src={closeAppWindow} /></a>
+                { !isMaximized && <a onClick={closeWindow}><img src={closeAppWindow} /></a> }
             </div>
         </div>
         <div className="AppWindowContent" style={{height:AppHeight-39}}>

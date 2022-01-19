@@ -2,15 +2,27 @@ import { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { saveUserSearchUrlList } from '@/utils/data'
 import './SearchUrlModal.css'
+import '@/styles/ModalPublic.css'
+import { defaultSearchList } from '@/store/search'
 
-export const addUrl = (urlList : any) => {
+export const addUrl = (categoryIndex : number) => {
 
   let el = document.createElement('div')
   document.body.appendChild(el)
 
   const onOK = (newUrlData : {}) => {
-    let newUrlList = [...urlList, newUrlData]
-    saveUserSearchUrlList(newUrlList) // save newUrlList to local
+    try {
+      let searchList = JSON.parse(window.localStorage.getItem('searchList') || '[]')
+      
+      if(!searchList) {
+        searchList = defaultSearchList
+      }
+      console.log(searchList)
+      searchList[categoryIndex]['urls'].push(newUrlData)
+      window.localStorage.setItem('searchList', JSON.stringify(searchList))
+    } catch (err) {
+      console.log(err)
+    }
     document.body.removeChild(el)
   }
  
@@ -19,20 +31,47 @@ export const addUrl = (urlList : any) => {
   }
 
   ReactDOM.render(
-    <AddSearchUrlModal urlList={ urlList } onOK={ onOK } onCancle={ onCancle } />,
+    <AddSearchUrlModal onOK={ onOK } onCancle={ onCancle } />,
     el
   )
 }
 
-export const editUrl = (event : any, url : any, urlIndex : number, urlList : any ) => {
-  event.preventDefault()
+export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : number) => {
   let el = document.createElement('div')
   document.body.appendChild(el)
 
   const onOK = (newUrlData : {}) => {
-    let newUrlList = urlList
-    newUrlList[urlIndex] = newUrlData
-    saveUserSearchUrlList(newUrlList) // save newUrlList to local
+    try {
+      let searchList = JSON.parse(window.localStorage.getItem('searchList') || '[]')
+      
+      if (!searchList) {
+        searchList = defaultSearchList
+      }
+      searchList[categoryIndex]['urls'][searchIndex] = newUrlData
+      window.localStorage.setItem('searchList', JSON.stringify(searchList))
+    } catch (err) {
+      console.log(err)
+    }
+
+    document.body.removeChild(el)
+  }
+
+  const onDelete = (newUrlData : any) => {
+    try {
+      let searchList = JSON.parse(window.localStorage.getItem('searchList') || '[]')
+      
+      if (!searchList) {
+        searchList = defaultSearchList
+      }
+      searchList[categoryIndex]['urls'] = searchList[categoryIndex]['urls'].filter(
+        (item : any) => item.url !== newUrlData.url 
+      )
+      console.log(searchList)
+      window.localStorage.setItem('searchList', JSON.stringify(searchList))
+    } catch (err) {
+      console.log(err)
+    }
+
     document.body.removeChild(el)
   }
 
@@ -41,7 +80,7 @@ export const editUrl = (event : any, url : any, urlIndex : number, urlList : any
   }
 
   ReactDOM.render(
-    <EditSearchUrlModal data={ url } onOK={ onOK } onCancle={ onCancle } />,
+    <EditSearchUrlModal data={ urlData } onOK={ onOK } onDelete={ onDelete } onCancle={ onCancle } />,
     el
   )
 }
@@ -110,15 +149,15 @@ export const AddSearchUrlModal = (props : any) => {
             <p>请将搜索关键词用$keyword$代替<br />如：https://www.baidu.com/s?wd=$keyword$</p>
           </div>
         <div className="SearchUrlModal_btns">
-          <button onClick={ onCancle }>取消</button>
-          <button className="active" onClick={ () => onSubmit() }>确认</button>
+          <button className="btn-primary"onClick={ onCancle }>取消</button>
+          <button className="btn-confirm" onClick={ () => onSubmit() }>确认</button>
         </div>
       </div>
     )
 }
 
 export const EditSearchUrlModal = (props : any) => {
-  const { data, onOK, onCancle } = props
+  const { data, onOK, onDelete, onCancle } = props
 
   const [newUrlData, setNewUrlData] = useState(data)
 
@@ -177,8 +216,9 @@ export const EditSearchUrlModal = (props : any) => {
         <p>请将搜索关键词用$keyword$代替<br />如：https://www.baidu.com/s?wd=$keyword$</p>
       </div>
       <div className="SearchUrlModal_btns">
-        <button onClick={ onCancle }>取消</button>
-        <button className="active" onClick={ () => onSubmit() }>确认</button>
+        <button className="btn-primary" onClick={ onCancle }>取消</button>
+        <button className="btn-delete" onClick={ () => onDelete(newUrlData) }>删除</button>
+        <button className="btn-confirm" onClick={ () => onSubmit() }>确认</button>
       </div>
     </div>
   )
