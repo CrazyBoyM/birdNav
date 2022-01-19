@@ -1,4 +1,4 @@
-import fengLin from '@/assets/bg/fenglin.mp4'
+// import fengLin from '@/assets/bg/fenglin.mp4'
 
 export const Background = () => {
   return (
@@ -16,7 +16,7 @@ export const Background = () => {
         mtt-playsinline="true"
         x5-video-player-type="h5-page"
       >
-          <source src={fengLin} type="video/mp4" />
+          <source src="https://cdn.jsdelivr.net/gh/CrazyBoyM/birdNav/src/assets/bg/fenglin.mp4" type="video/mp4" />
       </video>
       <section id="bg-img" className="bg"></section>
     </>

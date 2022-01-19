@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import { saveUserAppList } from '@/utils/data'
 import './index.css'
 
-import closeAppWindow from './icon/closeAppWindow.svg'
-import foldAppWindow from './icon/foldAppWindow.svg'
-import fullScreen from './icon/fullScreen.svg'
+import closeAppWindow from '/assets/icon/closeAppWindow.svg'
+import foldAppWindow from '/assets/icon/foldAppWindow.svg'
+import fullScreen from '/assets/icon/fullScreen.svg'
 import { getMaxZindex, setMaxZindex } from '@/store/global'
 
 interface app {

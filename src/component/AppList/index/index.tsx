@@ -4,7 +4,7 @@ import { AddOne, Plus, SettingOne, SettingTwo } from "@icon-park/react"
 import { addApp } from "../Modal/AddModal"
 import { editApp } from "../Modal/EditModal"
 import './index.css'
-import errorImg from "./icon/error.png"
+import errorImg from "/assets/icon/error.png"
 import { openWindow } from "../Window"
 import { useLocalStorageState } from "@/hooks/useLocalStorageState"
 import { defaultUserAppList } from "@/store/app"
