@@ -1,6 +1,6 @@
 const defaultUserAppList = [
   {
-      "id": "userApp31",
+      "id": "dfsgdfhbfgrjhty",
       "name": "谷歌翻译",
       "link": "https://translate.google.cn/",
       "logo": "https://translate.google.cn//favicon.ico",
@@ -11,7 +11,7 @@ const defaultUserAppList = [
       "y": 132
   },
   {
-      "id": "userApp21",
+      "id": "xfghfjytktdfgfht",
       "name": "代码练习场",
       "link": "http://code.ip3x.com",
       "logo": "https://cdn.jsdelivr.net/gh/CrazyBoyM/haut-online-ide/dist/favicon.ico",
@@ -22,7 +22,7 @@ const defaultUserAppList = [
       "y": 38
   },
   {
-      "id": "userApp21",
+      "id": "usehrApfhrfthphffhjhtyf21",
       "name": "Judge0 IDE",
       "link": "https://ide.judge0.com/",
       "logo": "https://ide.judge0.com//favicon.ico",
@@ -33,7 +33,7 @@ const defaultUserAppList = [
       "y": 132
   },
   {
-      "id": "userApp31",
+      "id": "usegyhjrAphgkjkp31",
       "name": "GeoGebra",
       "link": "https://www.geogebra.org/calculator",
       "logo": "https://www.geogebra.org//favicon.ico",
@@ -44,7 +44,7 @@ const defaultUserAppList = [
       "y": 10
   },
   {
-      "id": "userApp41",
+      "id": "usejytjmhjfjytf",
       "name": "Excalidraw",
       "link": "https://excalidraw.com/",
       "logo": "https://excalidraw.com//favicon.ico",
@@ -55,7 +55,7 @@ const defaultUserAppList = [
       "y": 14
   },
   {
-      "id": "userApp51",
+      "id": "sghdtjhytujeth",
       "name": "Github1s ",
       "link": "https://github1s.com/",
       "logo": "https://github1s.com//favicon.ico",
