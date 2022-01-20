@@ -13,7 +13,7 @@ const defaultUserAppList = [
   {
       "id": "userApp21",
       "name": "代码练习场",
-      "link": "http://ide.ip3x.com",
+      "link": "http://code.ip3x.com",
       "logo": "https://cdn.jsdelivr.net/gh/CrazyBoyM/haut-online-ide/dist/favicon.ico",
       "type": "inner",
       "width": 1024,

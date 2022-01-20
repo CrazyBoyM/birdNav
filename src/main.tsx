@@ -8,7 +8,7 @@ import App from './App'
 import { appVersion } from './store/config'
 
 try {
-  let localVersion = JSON.parse(window.localStorage.getItem('version') || '')
+  let localVersion = JSON.parse(window.localStorage.getItem('version') || '1.0.0')
   if (localVersion !== appVersion) {
     window.localStorage.clear()
     window.localStorage.setItem('version', appVersion)
