@@ -1,7 +1,7 @@
 const defaultLongTodoList = [
   {
       "id": "ZfSZpelrNMGOUnBoNTeGw",
-      "title": "找到女朋友，脱单！"
+      "title": "自己写一个操作系统"
   },
   {
       "id": "1HHsxlTLXa2NBsw4enRY5",
@@ -24,7 +24,7 @@ const defaultLongTodoList = [
 const defaultShortTodoList = [
   {
       "id": "Ar1V-r-AevyU1mQ-vaGPw",
-      "title": "安排前端小组的工作"
+      "title": "安排时间规划"
   },
   {
       "id": "kmCERLpzPepDkQT0w_tMZ",
