@@ -9,7 +9,7 @@ import { getMaxZindex, setMaxZindex } from '@/store/global'
 import { setLocal } from '@/utils/local'
 
 interface app {
-  appId: string
+  id: string
   name: string
   link: string
   logo: string
@@ -22,7 +22,7 @@ interface app {
 
 export const openWindow = (appData: app, appIndex: number, appList: any, setList: Function) => {
   // 如果app已存在（处于窗体被隐藏的状态）就直接显示
-  let app = document.getElementById(appData.appId)
+  let app = document.getElementById(appData.id)
   if (app) {
     app.style.display = 'block'
     return
@@ -30,7 +30,7 @@ export const openWindow = (appData: app, appIndex: number, appList: any, setList
 
   // 如果app不存在则创建应用窗体
   let el = document.createElement('div')
-  el.setAttribute('id', appData.appId)
+  el.setAttribute('id', appData.id)
   document.body.appendChild(el)
 
   const onClose = (x: number, y: number, width: number, height: number, isHide: false) => {

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import './public.css'
 import { getMaxZindex } from "@/store/global"
 import { setLocal } from "@/utils/local"
+import { nanoid } from "nanoid"
 
 
 export const addApp = (appList: any, setData: any) => {
@@ -21,16 +22,15 @@ export const addApp = (appList: any, setData: any) => {
     document.body.removeChild(el)
   }
 
-  let appId = 'userApp' + appList.length + 1
-  ReactDOM.render(<AddModal appId={appId} onOK={ onOk } onCancel={ onCancel } />, el)
+  ReactDOM.render(<AddModal onOK={ onOk } onCancel={ onCancel } />, el)
 }
 
 const AddModal = (props : any) => {
   
-  const { appId, onOK, onCancel } = props
+  const { onOK, onCancel } = props
   
   const [newAppData, setNewAppData] = useState({
-    id: appId,
+    id: nanoid(),
     name: '',
     link: '',
     logo: '',
