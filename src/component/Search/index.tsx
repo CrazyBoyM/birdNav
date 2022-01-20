@@ -1,7 +1,6 @@
 import { useLocalStorageState } from '@/hooks/useLocalStorageState'
 import { defaultCurrentSearch } from '@/store/search'
 import { useState, useEffect } from 'react'
-import { readCurrentSearchUrl, saveCurrentSearchUrl } from '../../utils/data'
 import './index.css'
 import { SearchUrlList } from './SearchUrlList'
 

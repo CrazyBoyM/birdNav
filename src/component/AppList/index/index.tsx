@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react"
-import { readPreAppList, readUserAppList } from "@/utils/data"
-import { AddOne, Plus, SettingOne, SettingTwo } from "@icon-park/react"
+import { AddOne, SettingOne } from "@icon-park/react"
 import { addApp } from "../Modal/AddModal"
 import { editApp } from "../Modal/EditModal"
 import './index.css'
@@ -12,19 +10,6 @@ import { defaultUserAppList } from "@/store/app"
 export const AppList = () => { 
     // const [preAppList, setPreAppList] = useState([])
     const [userAppList, setUserAppList] = useLocalStorageState('userAppList', defaultUserAppList)
-    
-    // useEffect(() => {
-    //   readPreAppList(setPreAppList)
-    //   readUserAppList(setUserAppList)
-    //   setTimeout(()=>console.log(userAppList), 300)
-    // }, [])
-    
-    // interface app {
-    //   name: string
-    //   link: string
-    //   logo: string
-    //   type: string
-    // }
     
     const onError = (e: any) => {;
       e.target.src = errorImg

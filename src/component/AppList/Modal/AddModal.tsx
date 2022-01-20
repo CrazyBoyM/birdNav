@@ -1,8 +1,8 @@
 import { useState } from "react"
 import ReactDOM from "react-dom"
-import { saveUserAppList } from "@/utils/data"
 import './public.css'
 import { getMaxZindex } from "@/store/global"
+import { setLocal } from "@/utils/local"
 
 
 export const addApp = (appList: any, setData: any) => {
@@ -12,7 +12,7 @@ export const addApp = (appList: any, setData: any) => {
 
   const onOk = (newAppData : {}) => {
     let newAppList = [...appList, newAppData]
-    saveUserAppList(newAppList)
+    setLocal('userAppList', newAppList)
     setData(newAppList)
     document.body.removeChild(el)
   }

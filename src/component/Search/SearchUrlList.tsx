@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { readPreSearchUrlList, readUserSearchUrlList } from '@/utils/data'
 import './SearchUrlList.css'
 import { addUrl, editUrl } from './SearchUrlModal'
 import { AddOne } from '@icon-park/react'

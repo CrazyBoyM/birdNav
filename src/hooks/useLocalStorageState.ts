@@ -1,14 +1,15 @@
+import { getLocal, setLocal } from '@/utils/local'
 import { useEffect, useState } from 'react'
 
 const useLocalStorageState = (keyName : string, defaultValue : unknown) => {
   const [state, setState] = useState(() => {
     try {
-      const localValue = window.localStorage.getItem(keyName)
+      const localValue = getLocal(keyName)
       
       if (localValue) {
-        return JSON.parse(localValue)
+        return localValue
       } else {
-        window.localStorage.setItem(keyName, JSON.stringify(defaultValue))
+        setLocal(keyName, defaultValue)
         return defaultValue
       }
     } catch (err) {
@@ -17,7 +18,7 @@ const useLocalStorageState = (keyName : string, defaultValue : unknown) => {
   })
   
   useEffect(() => {
-    window.localStorage.setItem(keyName, JSON.stringify(state))
+    setLocal(keyName, state)
   }, [state])
 
   return [state, setState]

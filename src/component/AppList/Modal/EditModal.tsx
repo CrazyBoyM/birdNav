@@ -1,9 +1,9 @@
-import { saveUserAppList } from "@/utils/data"
 import { useState } from "react"
 import ReactDOM from "react-dom"
 import './public.css'
 
 import { getMaxZindex } from "@/store/global"
+import { setLocal } from "@/utils/local"
 
 export const editApp = (appData: {}, appIndex: number, appList: any, setData: any) => {
   let el = document.createElement('div')
@@ -12,7 +12,7 @@ export const editApp = (appData: {}, appIndex: number, appList: any, setData: an
   const onOk = (newAppData : {}) => {
     let newAppList = [...appList]
     newAppList[appIndex] = newAppData
-    saveUserAppList(newAppList)
+    setLocal('userAppList', newAppList)
     setData(newAppList)
     document.body.removeChild(el)
   }
@@ -20,7 +20,7 @@ export const editApp = (appData: {}, appIndex: number, appList: any, setData: an
   const onDelete = () => {
     let newAppList = [...appList]
     newAppList.splice(appIndex, 1)
-    saveUserAppList(newAppList)
+    setLocal('userAppList', newAppList)
     setData(newAppList)
     document.body.removeChild(el)
   }

@@ -1,6 +1,5 @@
 import './App.css';
 import { Search } from '@/component/Search'
-import { initLocalData } from '@/utils/init'
 import { AppList } from '@/component/AppList/index'
 import '@icon-park/react/styles/index.css';
 import { Background } from './component/Background';

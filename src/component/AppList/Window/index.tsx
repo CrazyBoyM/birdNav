@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import ReactDOM from 'react-dom'
-import { saveUserAppList } from '@/utils/data'
 import './index.css'
 
 import closeAppWindow from '/assets/icon/closeAppWindow.svg'
 import foldAppWindow from '/assets/icon/foldAppWindow.svg'
 import fullScreen from '/assets/icon/fullScreen.svg'
 import { getMaxZindex, setMaxZindex } from '@/store/global'
+import { setLocal } from '@/utils/local'
 
 interface app {
   appId: string
@@ -21,12 +21,14 @@ interface app {
 }
 
 export const openWindow = (appData: app, appIndex: number, appList: any, setList: Function) => {
+  // 如果app已存在（处于窗体被隐藏的状态）就直接显示
   let app = document.getElementById(appData.appId)
   if (app) {
     app.style.display = 'block'
-    return false
+    return
   }
 
+  // 如果app不存在则创建应用窗体
   let el = document.createElement('div')
   el.setAttribute('id', appData.appId)
   document.body.appendChild(el)
@@ -34,28 +36,23 @@ export const openWindow = (appData: app, appIndex: number, appList: any, setList
   const onClose = (x: number, y: number, width: number, height: number, isHide: false) => {
     let newAppList: app[] = [...appList]
     newAppList[appIndex] = {...appData, x: x, y: y, width: width, height: height}
-    saveUserAppList(newAppList)
+    setLocal('userAppList', newAppList)
     setList(newAppList)
     document.body.removeChild(el)
   }
 
-  const onHide = (x: number, y: number, width: number, height: number) => {
-    let newAppList: app[] = [...appList]
-    newAppList[appIndex] = {...appData, x: x, y: y, width: width, height: height}
-    saveUserAppList(newAppList)
-    setList(newAppList)
-    sessionStorage.setItem(appData.name, newAppList)
-    document.body.removeChild(el)
+  const onHide = () => {
+    el.style.display = 'none'
   }
 
   ReactDOM.render(
-    <Window appData={appData} onClose={onClose} el={el} />,
+    <Window appData={appData} onClose={onClose} onHide={onHide} />,
     el
   )
 }
 
 const Window = (props: any) => {
-  const { appData, onClose } = props
+  const { appData, onClose, onHide } = props
   //获取浏览器窗口的宽、高
   const WindowWidth = document.body.clientWidth 
   const WindowHeight = document.body.clientHeight
@@ -242,12 +239,8 @@ const Window = (props: any) => {
       stateUpdate({...oldState})
     }
   }
-  const foldWindow = () => {
-    let app = document.getElementById(appData.appId)
-    if (app) {
-      app.style.display = 'none'
-    }
-  }
+  const foldWindow = () => onHide()
+
   const closeWindow = () => {
     const { AppLeft: x, AppTop: y, AppWidth: width, AppHeight: height } = state
     onClose(x,y,width,height)
@@ -281,7 +274,7 @@ const Window = (props: any) => {
         </div>
         <div className="AppWindowContent" style={{height:AppHeight-39}}>
           { isMoving && <div className="mask"></div> }
-          <iframe src={appData.link} name={appData.name} frameborder={0} allowtransparency={true} allowfullScreen={true} webkitallowfullscreen={true} mozallowfullscreen={true}></iframe>
+          <iframe src={appData.link} name={appData.name} frameBorder={0} allowTransparency={true} allowFullScreen={true}></iframe>
         </div>
         { !isMaximized && 
           <div className="resizebar">

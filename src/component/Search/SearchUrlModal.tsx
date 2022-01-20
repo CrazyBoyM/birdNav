@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import ReactDOM from 'react-dom'
-import { saveUserSearchUrlList } from '@/utils/data'
 import './SearchUrlModal.css'
 import '@/styles/ModalPublic.css'
 import { defaultSearchList } from '@/store/search'
+import { getLocal, setLocal } from '@/utils/local'
 
 export const addUrl = (categoryIndex : number) => {
 
@@ -12,14 +12,15 @@ export const addUrl = (categoryIndex : number) => {
 
   const onOK = (newUrlData : {}) => {
     try {
-      let searchList = JSON.parse(window.localStorage.getItem('searchList') || '[]')
+      let searchList = getLocal('searchList')
       
       if(!searchList) {
         searchList = defaultSearchList
       }
       console.log(searchList)
       searchList[categoryIndex]['urls'].push(newUrlData)
-      window.localStorage.setItem('searchList', JSON.stringify(searchList))
+
+      setLocal('searchList', searchList)
     } catch (err) {
       console.log(err)
     }
@@ -42,13 +43,14 @@ export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : numb
 
   const onOK = (newUrlData : {}) => {
     try {
-      let searchList = JSON.parse(window.localStorage.getItem('searchList') || '[]')
+      let searchList = getLocal('searchList')
       
       if (!searchList) {
         searchList = defaultSearchList
       }
       searchList[categoryIndex]['urls'][searchIndex] = newUrlData
-      window.localStorage.setItem('searchList', JSON.stringify(searchList))
+
+      setLocal('searchList', searchList)
     } catch (err) {
       console.log(err)
     }
@@ -58,7 +60,7 @@ export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : numb
 
   const onDelete = (newUrlData : any) => {
     try {
-      let searchList = JSON.parse(window.localStorage.getItem('searchList') || '[]')
+      let searchList = getLocal('searchList')
       
       if (!searchList) {
         searchList = defaultSearchList
@@ -67,7 +69,8 @@ export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : numb
         (item : any) => item.url !== newUrlData.url 
       )
       console.log(searchList)
-      window.localStorage.setItem('searchList', JSON.stringify(searchList))
+
+      setLocal('searchList', searchList)
     } catch (err) {
       console.log(err)
     }
