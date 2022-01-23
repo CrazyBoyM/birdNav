@@ -1,12 +1,14 @@
 import { useLocalStorageState } from '@/hooks/useLocalStorageState'
 import { defaultCurrentSearch } from '@/store/search'
+import { Down, More, MoreApp, MoreOne, MoreThree, MoreTwo, Right } from '@icon-park/react'
 import { useState, useEffect } from 'react'
 import './index.css'
+import SearchSuggestion from './SearchSuggestion'
 import { SearchUrlList } from './SearchUrlList'
 
 const Search = () => {
   const [searchUrl, setSearchUrl] = useLocalStorageState('currentSearch', defaultCurrentSearch)
-  const [keyword, setKeyWord] = useState('') 
+  const [keyword, setKeyword] = useState('') 
   const [showSearchUrlList, setShowSearchUrlList] = useState(false)
 
   // go to search page
@@ -21,15 +23,24 @@ const Search = () => {
       { searchUrl && 
         <div className="SearchBar">
           <div className="SearchUrl rowcenter">
-            <span onMouseOver={ () => setShowSearchUrlList(true) }>{ searchUrl.title }</span>
+            <span className="rowcenter" onClick={ () => setShowSearchUrlList(!showSearchUrlList) }>
+              { searchUrl.title }
+              {
+                showSearchUrlList ?
+                <Right theme="outline" size="19" fill="#eee"/>
+                :
+                <Down theme="outline" size="19" fill="#eee"/>
+              }
+            </span>
             { showSearchUrlList && <SearchUrlList setShow={ setShowSearchUrlList } setSearchUrl={ setSearchUrl } /> }
+            { keyword.length > 0 && <SearchSuggestion keyword={ keyword } setKeyword={ setKeyword }/> }
           </div>
           <form className="center" onSubmit={ handleSearchGo }>
             <input 
               type="text" 
               value={ keyword } 
               placeholder={ searchUrl.describtion }
-              onChange={ e => setKeyWord(e.target.value) }
+              onChange={ e => setKeyword(e.target.value) }
             ></input>
           </form>
           <div className="SearchButton center" onClick={ handleSearchGo }>

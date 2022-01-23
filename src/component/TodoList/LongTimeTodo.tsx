@@ -71,7 +71,7 @@ const TodoHeader : React.FC<TodoHeaderProps> = (props) => {
 
   return (
     <section className="todo-header">
-      <span className="todo-header-title">long-term</span>
+      <span className="todo-header-title">一年内</span>
       <section className="todo-header-btns">
         <section 
           className="todo-header-btn center" 

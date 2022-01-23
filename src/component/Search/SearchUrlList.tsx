@@ -26,7 +26,7 @@ export const SearchUrlList = (props : any) => {
     }
 
     return (
-      <div className="SearchUrlList" onMouseLeave={ () => setShow(false) }>
+      <div className="SearchUrlList">
         <div className="SearchUrlList-about rowcenter">
           声明：全部搜索源均来自第三方站点，如有侵权请联系删除
         </div>

@@ -80,7 +80,7 @@
     height: 36px;
 }
 .SearchUrlList-row > ul > li:hover {
-    color: #fff;
+    color: var(--highlight-text);
     transform: scale(1.6);
     font-weight: bold;
 }

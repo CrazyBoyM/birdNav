@@ -10,9 +10,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  border-radius: 39.6px 0;
   background-color: var(--TodoList-background);
-  border-radius: 0 0 0 13px;
 }
+/* .todo:nth-child(2) {
+  border-radius: 0 36px 36px 0;
+} */
 
 .todo-header {
   box-sizing: border-box;
@@ -77,7 +80,7 @@
   transition: cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
 }
 .TodoContent-item:hover, .DoneContent-item:hover {
-  color: #fff;
+  color: var(--highlight-text);
   font-weight: bold;
   font-size: 17px;
 }
@@ -88,7 +91,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  -o-text-overflow:ellipsis;
+  -o-text-overflow: ellipsis;
   /* border-bottom: 1px solid #ccc; */
   user-select: text;
 }

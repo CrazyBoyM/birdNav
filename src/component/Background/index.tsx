@@ -2,11 +2,10 @@
 
 export const Background = () => {
   return (
-    <>
-      <canvas id="bg-canvas" className="bg"></canvas>
+    <section className="bg">
+      {/* <canvas id="bg-canvas" className="bg"></canvas>
       <video
         id="bg-video"
-        className="bg"
         muted
         loop
         autoplay="autoplay"
@@ -18,7 +17,7 @@ export const Background = () => {
       >
           <source src="https://cdn.jsdelivr.net/gh/CrazyBoyM/birdNav/public/assets/bg/fenglin.mp4" type="video/mp4" />
       </video>
-      <section id="bg-img" className="bg"></section>
-    </>
+      <section id="bg-img" className="bg"></section> */}
+    </section>
   )
 }
