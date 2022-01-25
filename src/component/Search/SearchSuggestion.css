@@ -36,10 +36,8 @@
   padding: 6px 19px;
   list-style: none;
   color: #fff;
-  transition: transform ease-in .1s;
+  transition: ease-in-out .2s;
 }
 .SearchSuggestion-item:hover {
   color: var(--highlight-text);
-  transform: scale(1.3);
-  font-weight: bold;
 }

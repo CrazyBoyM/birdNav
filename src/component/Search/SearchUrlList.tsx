@@ -44,7 +44,7 @@ export const SearchUrlList = (props : any) => {
                     onContextMenu={
                       (event) => {
                         event.preventDefault()
-                        editUrl(url, categoryIndex, index) 
+                        editUrl(url, categoryIndex, index, setSearchUrlList) 
                       }
                     }
                   >
@@ -54,7 +54,7 @@ export const SearchUrlList = (props : any) => {
                 }
                 {
                   category.urls.length < 6 && 
-                  <li onClick={()=>addUrl(categoryIndex)}>
+                  <li onClick={()=>addUrl(categoryIndex, setSearchUrlList)}>
                     <AddOne theme="outline" size="21" fill="#eee"/> 
                   </li> 
                 }
