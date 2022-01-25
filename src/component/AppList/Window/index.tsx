@@ -6,7 +6,7 @@ import closeAppWindow from "/assets/icon/closeAppWindow.svg";
 import foldAppWindow from "/assets/icon/foldAppWindow.svg";
 import fullScreen from "/assets/icon/fullScreen.svg";
 import { getMaxZindex, setMaxZindex } from "@/store/global";
-import { setLocal } from "@/utils/local";
+import { getLocal, setLocal } from "@/utils/local";
 
 interface app {
   id: string;
@@ -45,7 +45,7 @@ export const openWindow = (
     height: number,
     isHide: false
   ) => {
-    let newAppList: app[] = [...appList];
+    let newAppList: app[] = getLocal("userAppList");
     newAppList[appIndex] = {
       ...appData,
       x: x,

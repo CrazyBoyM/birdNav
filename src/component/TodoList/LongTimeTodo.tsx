@@ -1,18 +1,21 @@
 import { useLocalStorageState } from '@/hooks/useLocalStorageState'
 import { defaultLongTodoList } from '@/store/todo'
-import { Add, Check, CheckOne, Close, CloseOne, CloseSmall, Correct, Plus, ReduceOne } from '@icon-park/react'
+import { CheckOne, CloseOne, Plus, ReduceOne } from '@icon-park/react'
 import { nanoid } from 'nanoid'
 import React, { useState } from 'react'
 import './index.css'
 
 interface TodoItem {
   id: string,
-  title: string
+  title: string,
+  createTime: number,
 }
 
 interface DoneItem {
   id: string,
-  title: string
+  title: string,
+  createTime: number,
+  doneTime: number
 }
 
 const LongTimeTodo = () => {
@@ -20,9 +23,9 @@ const LongTimeTodo = () => {
   const [doneList, setDoneList] = useLocalStorageState('long-donelist', [])
   const [type, setType] = useState('todo')
 
-  const addTodoItem = (content : string) => {
-    if (!content) return
-    const newTodoItem = { id: nanoid(), title: content }
+  const addTodoItem = (content : { title : string, createTime : number }) => {
+    if (!content.title) return
+    const newTodoItem = { id: nanoid(), ...content }
     const newTodoList = [newTodoItem, ...todoList]
     setTodoList(newTodoList)
   }
@@ -34,7 +37,11 @@ const LongTimeTodo = () => {
 
   const competeTodoItem = (item : TodoItem) => {
     const newTodoList = todoList.filter((todo : TodoItem) => todo.id !== item.id)
-    const newDoneList = [item, ...doneList]
+    const newDoneList = [{
+      ...item,
+      doneTime: new Date().getTime()
+    }, ...doneList]
+    console.log(newDoneList)
     setTodoList(newTodoList)
     setDoneList(newDoneList)
   }
@@ -53,7 +60,7 @@ const LongTimeTodo = () => {
 
   return (
     <section className="todo">
-      <TodoHeader type={type} setType={setType} onAdd={addTodoItem} />
+      <TodoHeader type={type} setType={setType} />
       { type === 'todo' && <TodoContent list={todoList} onAdd={addTodoItem} onDelete={deleteTodoItem} onCompete={competeTodoItem} /> }
       { type === 'done' && <DoneContent list={doneList} onDelete={deleteDoneItem} onRedo={redoDoneItem} /> }
     </section>
@@ -62,16 +69,17 @@ const LongTimeTodo = () => {
 
 interface TodoHeaderProps {
   type: string,
-  setType: (value: string) => void,
-  onAdd: (content: string) => void
+  setType: (value: string) => void
 }
 
 const TodoHeader : React.FC<TodoHeaderProps> = (props) => {
-  const { type, setType, onAdd } = props
+  const { type, setType } = props
+
+  const date = new Date()
 
   return (
     <section className="todo-header">
-      <span className="todo-header-title">一年内</span>
+      <span className="todo-header-title">月度计划</span>
       <section className="todo-header-btns">
         <section 
           className="todo-header-btn center" 
@@ -92,10 +100,11 @@ interface TodoContentProps {
   list: [
     {
       id: string,
-      title: string
+      title: string, 
+      createTime: number,
     }
   ],
-  onAdd: (content: string) => void,
+  onAdd: (content: { title : string, createTime : number }) => void,
   onDelete: (item : TodoItem) => void,
   onCompete: (item : TodoItem) => void
 }
@@ -105,7 +114,10 @@ const TodoContent : React.FC<TodoContentProps> = (props) => {
   const [text, setText] = useState('')
   const onSubmit = (e : any) => {
     e.preventDefault()
-    onAdd(text)
+    onAdd({
+      title: text,
+      createTime: new Date().getTime()
+    })
     setText('')
   }
 
@@ -128,8 +140,10 @@ const TodoContent : React.FC<TodoContentProps> = (props) => {
         }
       </ul>
       <form className="TodoContent-add" onSubmit={onSubmit}>
-        <input type="text" placeholder="something..." value={text} onChange={e => setText(e.target.value)} />
-        <Plus onClick= {onSubmit} theme="outline" size="23" fill="rgb(196,196,196)"/>
+        <input className={text.length > 0 ? "input-active" : "input-default"} type="text" placeholder="something..." value={text} onChange={e => setText(e.target.value)} />
+        <div className="TodoContent-add-btn center" onClick={onSubmit}>
+          <Plus theme="outline" size="23" fill="rgb(196,196,196)"/>
+        </div>
       </form>
     </div>
   )
@@ -139,7 +153,9 @@ interface DoneContentProps {
   list: [
     {
       id: string,
-      title: string
+      title: string,
+      createTime: number,
+      doneTime: number,
     }
   ],
   onDelete: (item : TodoItem) => void,

@@ -8,5 +8,5 @@ body {
     --AppList-background: rgba(255, 255, 255, .36);
     --TodoList-background: rgba(0,0,0, .3);
     --SearchSuggestion-background: rgba(0, 0, 0, .3);
-    --highlight-text: #fe3369;
+    --highlight-text: #fff;
 }

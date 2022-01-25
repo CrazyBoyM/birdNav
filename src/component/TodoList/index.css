@@ -26,11 +26,9 @@
 }
 
 .todo-header-title {
-  width: 160px;
   padding: 23px;
-  font-size: 23px;
+  font-size: 19px;
   letter-spacing: 3px;
-  font-style: italic;
 }
 
 .todo-header-btns {
@@ -77,12 +75,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transition: cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
-}
-.TodoContent-item:hover, .DoneContent-item:hover {
-  color: var(--highlight-text);
-  font-weight: bold;
-  font-size: 17px;
+  transition: ease-in-out .12s;
 }
 
 .TodoContent-item-title, .DoneContent-item-title {
@@ -111,10 +104,9 @@
   height: 25px;
   padding: 6px;
   margin-left: 3px;
-  border-radius: 50%;
 }
 .TodoContent-item-btn:hover, .DoneContent-item-btn:hover {
-  background-color: rgba(255, 255, 255, .3);
+  box-shadow: 0 0 2px rgba(255, 255, 255, .5);
 }
 
 .TodoContent-add {
@@ -122,16 +114,24 @@
   display: flex;
   justify-content: center;
 }
-.TodoContent-add > input {
+.input-default, .input-active {
   width: 106px;
   margin-right: 36px;
   text-align: center;
   color: #eee;
   font-size: 16px;
   border-bottom: 1px solid rgb(165, 165, 165);
-  transition: ease-in-out .3s;
+  transition: ease-in-out .6s;
 }
-.TodoContent-add > input:focus {
+.input-active {
   width: 256px;
   border-bottom: 1px solid #fff;
+} 
+.TodoContent-add-btn {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.TodoContent-add-btn:hover {
+  box-shadow: 0 0 2px rgba(255, 255, 255, .5);
 }
