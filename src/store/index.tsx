@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react"
+import { createContext, useReducer } from "react"
 
 export const StoreStateContext = createContext({ zIndex: 0 })
 export const StoreDispatchContext = createContext((...args: any[]) => {})

@@ -1,12 +1,12 @@
 body {
-    --main-background: rgba(13, 13, 9, 0.16);
+    --main-background: hsla(60, 20%, 4%, 0.281);
     --SearchBar-background: rgba(0, 0, 0, .6);
     --SearchList-background: rgba(0, 0, 0, .6);
     --Modal-background: rgba(0, 0, 0, .6);
     --Window-background: rgba(255, 255, 255, 1);
     --WindowHeader-background: rgba(255, 255, 255, .9);
     --AppList-background: rgba(255, 255, 255, .36);
-    --TodoList-background: rgba(0,0,0, .3);
+    --TodoList-background: hsla(0, 0%, 0%, 0.438);
     --SearchSuggestion-background: rgba(0, 0, 0, .3);
     --highlight-text: #fe3369;
 }
