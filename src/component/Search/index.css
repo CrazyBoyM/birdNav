@@ -47,14 +47,27 @@
   cursor: pointer;
 }
 .SearchButton {
-  width: 72px;
+  width: 80px;
   height: 39px;
   color: #ddd;
   font-size: 16px;
   font-weight: bolder;
   cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+}
+.SearchButton>span {
+  display: flex;
+  align-items: flex-start;
+  font-size: 18px;
+  margin-top: -3px;
+  margin-right: 10px;
 }
 .SearchButton:hover {
   color: #fff;
 }
-
+.urlTag {
+  height: 100%;
+  padding-left: 15px;
+  margin-left: 0;
+}
