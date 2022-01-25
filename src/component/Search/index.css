@@ -12,14 +12,13 @@
   width: 537px;
   height: 36px;
   border-radius: 36px;
-  border: 3px #fff solid;
+  border: 3px solid var(--SearchBar-background);
   background-color: var(--SearchBar-background);
-  /* backdrop-filter: blur(3.6px); */
 }
 .SearchBar > form {
   display: flex;
   justify-self: flex-start;
-  width: 500px;
+  width: 520px;
   height: 36px;
   padding: 0 16px;
 }
@@ -34,6 +33,7 @@
 .SearchBar > form > input::-webkit-input-placeholder {
   color: rgb(203, 203, 203);
   letter-spacing: 1px;
+  font-weight: normal;
 }
 .SearchUrl {
   position: relative;
@@ -43,18 +43,16 @@
   font-size: 15px;
   text-align: center;
   white-space: nowrap;
-  border-right: 2px #fff solid;
+  border-right: 2px #ddd solid;
   cursor: pointer;
 }
 .SearchButton {
-  width: 80px;
+  width: 100px;
   height: 39px;
   color: #ddd;
   font-size: 16px;
   font-weight: bolder;
   cursor: pointer;
-  flex-direction: row;
-  align-items: center;
 }
 .SearchButton>span {
   display: flex;
@@ -67,9 +65,7 @@
   color: #fff;
 }
 .urlTag {
-  display: flex;
-  align-items: center;
   height: 100%;
-  padding-left: 15px;
+  padding-left: 9px;
   margin-left: 0;
 }

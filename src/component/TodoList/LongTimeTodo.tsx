@@ -140,7 +140,7 @@ const TodoContent : React.FC<TodoContentProps> = (props) => {
         }
       </ul>
       <form className="TodoContent-add" onSubmit={onSubmit}>
-        <input className={text.length > 0 ? "input-active" : "input-default"} type="text" placeholder="something..." value={text} onChange={e => setText(e.target.value)} />
+        <input className={text.length > 0 ? "input-active" : "input-default"} type="text" placeholder="something" value={text} onChange={e => setText(e.target.value)} />
         <div className="TodoContent-add-btn center" onClick={onSubmit}>
           <Plus theme="outline" size="23" fill="rgb(196,196,196)"/>
         </div>
