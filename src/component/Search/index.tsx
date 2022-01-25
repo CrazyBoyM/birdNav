@@ -16,9 +16,14 @@ const Search = () => {
     return () => setKeywordVisible(false)
   }, [keyword])
   useEffect(() => {
-    const callback = () => setShowSearchUrlList(false)
+    const callback = () => {
+      console.log('here')
+      setShowSearchUrlList(false)
+      setKeywordVisible(false)
+    }
     document.addEventListener('click', callback, false)
     return () => {
+      console.log('distory')
       document.removeEventListener('click', callback, false)
     }
   }, [])
@@ -33,11 +38,12 @@ const Search = () => {
     <div className="Search">
       {searchUrl &&
         <div className="SearchBar">
-          <div className="SearchUrl rowcenter urlTag" onClick={(e) => {
-            e.stopPropagation()
-            setShowSearchUrlList(!showSearchUrlList);
-          }}>
-            <span className="rowcenter">
+          <div className="SearchUrl rowcenter">
+            <span className="rowcenter urlTag" onClick={(e) => {
+              e.stopPropagation()
+              setShowSearchUrlList(!showSearchUrlList);
+              setKeywordVisible(false)
+            }}>
               {searchUrl.title}
               {
                 showSearchUrlList ?
@@ -54,8 +60,11 @@ const Search = () => {
               value={keyword}
               placeholder={searchUrl.describtion}
               onChange={e => setKeyword(e.target.value)}
-              onFocus={() => setKeywordVisible(!!keyword)}
-              onBlur={() => setKeywordVisible(false)}
+              onClick={e => e.stopPropagation()}
+              onFocus={e => {
+                setShowSearchUrlList(false)
+                setKeywordVisible(!!keyword)
+              }}
             ></input>
           </form>
           <div className="SearchButton center" >
