@@ -1,0 +1,10 @@
+# ignore 
+build
+coverage
+index.html
+dist
+README
+README.md
+package.json
+package-lock.json
+yarn.lock
