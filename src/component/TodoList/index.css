@@ -101,7 +101,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
-  transition: transform 0.2s ease 0.05s, color 0.1s 0.1s linear, font-weight 0.1s linear;
+  transition: transform 0.2s ease 0.05s, color 0.1s 0.1s linear,
+    font-weight 0.1s linear;
   user-select: text;
   cursor: default;
   display: flex;

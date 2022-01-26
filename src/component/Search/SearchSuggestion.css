@@ -8,7 +8,7 @@
   border-radius: 16px;
   backdrop-filter: blur(9.6px);
   background-color: var(--SearchSuggest-bg);
-  box-shadow: 3px 6px 16px rgba(0,0,0,.96);
+  box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.96);
   cursor: pointer;
   z-index: 2;
 }
@@ -29,7 +29,7 @@
   padding: 6px 19px;
   list-style: none;
   color: #fff;
-  transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 }
 .SearchSuggestion-item:hover {
   color: var(--highlight-text);

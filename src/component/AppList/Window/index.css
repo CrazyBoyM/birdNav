@@ -5,16 +5,23 @@
   position: absolute;
   min-width: 300px;
   min-height: 300px;
-  box-shadow: 0px 1px 6px rgba(0,0,0,0.3),
-  0px 0px 6px rgba(0,0,0,0.1) inset;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3),
+    0px 0px 6px rgba(0, 0, 0, 0.1) inset;
   animation: fade-in;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
   transition: all 0.3s ease-in-out;
 }
 @keyframes fade-in {
-  0% {opacity: 0; transform: translateY(100%);}
-  50% {opacity: 0.6;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .AppWindowHeader {
   display: flex;
@@ -28,20 +35,19 @@
   cursor: move;
 }
 .AppWindowHeader .Title {
-
 }
 .AppWindowHeader .Menu {
   /* display: flex;
   align-items: center; */
 }
-.AppWindowHeader .Menu a{
+.AppWindowHeader .Menu a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 39px;
   height: 36px;
   cursor: pointer;
-  transition: ease-in-out .3s;
+  transition: ease-in-out 0.3s;
 }
 .AppWindowHeader .Menu a:last-child {
   border-radius: 0 13.6px 0 0;
@@ -54,7 +60,7 @@
   width: 100%;
   background: var(--Window-background);
 }
-.AppWindowContent iframe{
+.AppWindowContent iframe {
   width: 100%;
   height: 100%;
   min-width: 300px;

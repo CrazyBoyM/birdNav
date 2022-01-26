@@ -1,4 +1,6 @@
-.btn-primary, .btn-confirm, .btn-delete {
+.btn-primary,
+.btn-confirm,
+.btn-delete {
   margin: 0 16px;
   padding: 6px 19px;
   color: #eee;
@@ -7,7 +9,7 @@
   outline: none;
   border-radius: 6px;
   border: 2px solid #ddd;
-  box-shadow: 3px 3px 3px rgba(0,0,0,.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
   transition: translate 0.3s;
   cursor: pointer;
 }

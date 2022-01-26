@@ -1,12 +1,12 @@
-import { appVersion } from "@/store/config"
-import { clearLocal, getLocal, setLocal } from "./local"
+import { appVersion } from "@/store/config";
+import { clearLocal, getLocal, setLocal } from "./local";
 
 const localDataUpdate = () => {
-  let localVersion = getLocal('version')
+  let localVersion = getLocal("version");
   if (localVersion !== appVersion) {
-  clearLocal()
-  setLocal('version', appVersion)
+    clearLocal();
+    setLocal("version", appVersion);
   }
-}
+};
 
-export { localDataUpdate }
+export { localDataUpdate };

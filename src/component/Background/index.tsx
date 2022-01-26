@@ -19,5 +19,5 @@ export const Background = () => {
       </video>
       <section id="bg-img" className="bg"></section> */}
     </section>
-  )
-}
+  );
+};

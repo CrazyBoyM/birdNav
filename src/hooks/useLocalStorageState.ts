@@ -1,27 +1,27 @@
-import { getLocal, setLocal } from '@/utils/local'
-import { useEffect, useState } from 'react'
+import { getLocal, setLocal } from "@/utils/local";
+import { useEffect, useState } from "react";
 
 const useLocalStorageState = <T>(keyName: string, defaultValue: T) => {
   const [state, setState] = useState<T>(() => {
     try {
-      const localValue = getLocal(keyName)
+      const localValue = getLocal(keyName);
 
       if (localValue) {
-        return localValue
+        return localValue;
       } else {
-        setLocal(keyName, defaultValue)
-        return defaultValue
+        setLocal(keyName, defaultValue);
+        return defaultValue;
       }
     } catch (err) {
-      return defaultValue
+      return defaultValue;
     }
-  })
+  });
 
   useEffect(() => {
-    setLocal(keyName, state)
-  }, [state])
+    setLocal(keyName, state);
+  }, [state]);
 
-  return [state, setState] as const
-}
+  return [state, setState] as const;
+};
 
-export { useLocalStorageState }
+export { useLocalStorageState };
