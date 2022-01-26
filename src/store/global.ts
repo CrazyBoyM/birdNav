@@ -1,7 +1,7 @@
-let maxZindex = 1000
+let maxZindex = 1000;
 export const getMaxZindex = () => {
-  return maxZindex
-}
+  return maxZindex;
+};
 export const setMaxZindex = (newZindex: number) => {
-  maxZindex = newZindex
-}
+  maxZindex = newZindex;
+};

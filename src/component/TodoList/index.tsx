@@ -1,6 +1,6 @@
-import LongTimeTodo from "./LongTimeTodo"
-import ShortTimeTodo from "./ShortTimeTodo"
-import './index.css'
+import LongTimeTodo from "./LongTimeTodo";
+import ShortTimeTodo from "./ShortTimeTodo";
+import "./index.css";
 
 const TodoList = () => {
   return (
@@ -8,7 +8,7 @@ const TodoList = () => {
       <LongTimeTodo></LongTimeTodo>
       <ShortTimeTodo></ShortTimeTodo>
     </div>
-  )
-}
+  );
+};
 
-export default TodoList
+export default TodoList;

@@ -23,14 +23,14 @@
   height: 100px;
   color: #ddd;
   font-weight: bold;
-  background:  rgb(63, 63, 63);
+  background: rgb(63, 63, 63);
   border-radius: 100%;
   box-shadow: 3px 3px 0 6px rgb(196, 196, 196);
   cursor: pointer;
-  transition: cubic-bezier(0.213, 0.610, 0.356, 1) .9s;
+  transition: cubic-bezier(0.213, 0.61, 0.356, 1) 0.9s;
 }
 .pie:hover {
   background: #333;
   box-shadow: 3px 3px 0 6px rgb(211, 211, 211);
-  transition: cubic-bezier(0.213, 0.610, 0.356, 1) .9s;
+  transition: cubic-bezier(0.213, 0.61, 0.356, 1) 0.9s;
 }
