@@ -1,5 +1,5 @@
 # birdNav - 飞鸟导航
-vercel地址: https://bird-nav.vercel.app 
+vercel地址: https://bird-nav.vercel.app  
 一颗追求极致简约、极致实用的心，做一个功能强大而简洁的网址导航  （仿桌面UI风格）  
 
 
