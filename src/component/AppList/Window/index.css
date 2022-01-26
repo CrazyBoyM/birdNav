@@ -49,9 +49,7 @@
 .AppWindowHeader .Menu a:hover {
   background: #ddd;
 }
-.AppWindowHeader .Menu a > img {
-  width: 19px;
-}
+
 .AppWindowContent {
   width: 100%;
   background: var(--Window-background);
