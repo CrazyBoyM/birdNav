@@ -17,7 +17,10 @@ import {
 } from "react";
 
 export const AppList = () => {
+  // 内置应用列表属于不可删改的应用
   // const [preAppList, setPreAppList] = useState([])
+  // todo: 网址文件夹管理器子应用、小游戏
+  // 用户列表属于可自由改动操作的部分
   const [userAppList, setUserAppList] = useLocalStorageState(
     "userAppList",
     defaultUserAppList

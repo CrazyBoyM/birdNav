@@ -331,7 +331,7 @@ const Window = (props: any) => {
         </div>
       </div>
       <div className="AppWindowContent" style={{ height: AppHeight - 39 }}>
-        {/* {isMoving && <div className="mask"></div>} */}
+        {isMoving && <div className="mask"></div>}
         <iframe
           src={appData.link}
           name={appData.name}
