@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-
 import { getMaxZindex, setMaxZindex } from "@/store/global";
 import { getLocal, setLocal } from "@/utils/local";
 import { Close, FullScreen, Minus } from "@icon-park/react";
@@ -319,14 +318,14 @@ const Window = (props: any) => {
         <div className="Title">{appData.name}</div>
         <div className="Menu">
           <a onClick={foldWindow}>
-            <Minus theme="outline" size="19" fill="#666"/>
+            <Minus theme="outline" size="19" fill="#666" />
           </a>
           <a onClick={fullWindow}>
-            <FullScreen theme="outline" size="19" fill="#666"/>
+            <FullScreen theme="outline" size="19" fill="#666" />
           </a>
           {!isMaximized && (
             <a onClick={closeWindow}>
-              <Close theme="outline" size="19" fill="#666"/>
+              <Close theme="outline" size="19" fill="#666" />
             </a>
           )}
         </div>
