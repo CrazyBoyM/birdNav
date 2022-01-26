@@ -18,7 +18,9 @@ const htmlPlugin = () => {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), minifyHtml(), injectHtml()],
-  alias: {
-    '@': path.resolve(__dirname, './src'),
-  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    }
+  }
 })
