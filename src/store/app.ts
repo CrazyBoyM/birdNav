@@ -56,4 +56,8 @@ const defaultUserAppList = [
     }
 ]
 
+export type UserApp = (typeof defaultUserAppList)[number]
+
+export type UserAppList = Array<UserApp>
+
 export { defaultUserAppList }

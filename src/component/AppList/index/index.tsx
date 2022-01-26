@@ -7,7 +7,8 @@ import "./index.css";
 import errorImg from "/assets/icon/error.png";
 import { openWindow } from "../Window";
 import { useLocalStorageState } from "@/hooks/useLocalStorageState";
-import { defaultUserAppList } from "@/store/app";
+import { defaultUserAppList, UserApp } from "@/store/app";
+import { ReactEventHandler, SyntheticEvent } from "react";
 
 export const AppList = () => {
   // const [preAppList, setPreAppList] = useState([])
@@ -16,11 +17,11 @@ export const AppList = () => {
     defaultUserAppList
   );
 
-  const onError = (e: any) => {
-    e.target.src = errorImg;
+  const onError: ReactEventHandler<HTMLImageElement> = (e) => {
+    (e.target as HTMLImageElement).src = errorImg;
   };
 
-  const runApp = (appData: any, appIndex: number) => {
+  const runApp = (appData: UserApp, appIndex: number) => {
     if (appData.type === "inner") {
       openWindow(appData, appIndex, userAppList, setUserAppList);
     } else {

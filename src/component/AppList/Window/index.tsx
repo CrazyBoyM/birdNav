@@ -1,9 +1,11 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-
+// @ts-ignore
 import closeAppWindow from "/assets/icon/closeAppWindow.svg";
+// @ts-ignore
 import foldAppWindow from "/assets/icon/foldAppWindow.svg";
+// @ts-ignore
 import fullScreen from "/assets/icon/fullScreen.svg";
 import { getMaxZindex, setMaxZindex } from "@/store/global";
 import { getLocal, setLocal } from "@/utils/local";
@@ -20,12 +22,12 @@ interface app {
   y: number;
 }
 
-export const openWindow = (
-  appData: app,
+export const openWindow: <T>(
+  appDatA: app,
   appIndex: number,
-  appList: any,
+  appList: T,
   setList: Function
-) => {
+) => void = (appData, appIndex, appList, setList) => {
   // 如果app已存在（处于窗体被隐藏的状态）就直接显示
   let app = document.getElementById(appData.id);
   if (app) {
