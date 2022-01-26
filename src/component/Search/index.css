@@ -9,11 +9,17 @@
 .SearchBar {
   display: flex;
   align-items: center;
-  width: 537px;
-  height: 36px;
+  width: 550px;
+  height: 42px;
   border-radius: 36px;
-  border: 3px solid var(--SearchBar-background);
   background-color: var(--SearchBar-background);
+  border: 2px transparent solid;
+  box-sizing: border-box;
+  transition: border 0.2s ease;
+}
+
+.SearchBar.active {
+  border: 2px rgba(255, 255, 255, 0.8) solid;
 }
 .SearchBar > form {
   display: flex;
@@ -43,7 +49,7 @@
   font-size: 15px;
   text-align: center;
   white-space: nowrap;
-  border-right: 2px #ddd solid;
+  border-right: 1px #eee solid;
   cursor: pointer;
 }
 .SearchButton {
@@ -54,7 +60,7 @@
   font-weight: bolder;
   cursor: pointer;
 }
-.SearchButton>span {
+.SearchButton > span {
   display: flex;
   align-items: flex-start;
   font-size: 18px;

@@ -1,5 +1,6 @@
 import { useLocalStorageState } from '@/hooks/useLocalStorageState'
 import { defaultLongTodoList } from '@/store/todo'
+import resolveClasses from '@/utils/resolveClasses'
 import { CheckOne, CloseOne, Plus, ReduceOne } from '@icon-park/react'
 import { nanoid } from 'nanoid'
 import React, { useState } from 'react'
@@ -64,8 +65,8 @@ const LongTimeTodo = () => {
       { type === 'todo' && <TodoContent list={todoList} onAdd={addTodoItem} onDelete={deleteTodoItem} onCompete={competeTodoItem} /> }
       { type === 'done' && <DoneContent list={doneList} onDelete={deleteDoneItem} onRedo={redoDoneItem} /> }
     </section>
-  )
-}
+  );
+};
 
 interface TodoHeaderProps {
   type: string,
@@ -81,20 +82,28 @@ const TodoHeader : React.FC<TodoHeaderProps> = (props) => {
     <section className="todo-header">
       <span className="todo-header-title">月度计划</span>
       <section className="todo-header-btns">
-        <section 
-          className="todo-header-btn center" 
-          onClick={() => setType('todo')}
-          style={{ backgroundColor: type === 'todo' ? 'rgba(255,255,255, .3)' : 'rgba(255,255,255, .36)'}}
-        >todo</section>
-        <section 
-          className="todo-header-btn center" 
-          onClick={() => setType('done')}
-          style={{ backgroundColor: type === 'done' ? 'rgba(255,255,255, .3)' : 'rgba(255,255,255, .36)'}}
-        >done</section>
+        <section
+          className={resolveClasses(
+            "todo-header-btn center",
+            type === "todo" ? "active" : ""
+          )}
+          onClick={() => setType("todo")}
+        >
+          Todo
+        </section>
+        <section
+          className={resolveClasses(
+            "todo-header-btn center",
+            type === "todo" ? "" : "active"
+          )}
+          onClick={() => setType("done")}
+        >
+          Done
+        </section>
       </section>
     </section>
-  )
-}
+  );
+};
 
 interface TodoContentProps {
   list: [
@@ -124,20 +133,27 @@ const TodoContent : React.FC<TodoContentProps> = (props) => {
   return (
     <div className="TodoContent">
       <ul className="TodoContent-list">
-        {
-          list.map((item : TodoItem, index : number) => 
+        {list.map((item: TodoItem, index: number) => (
           <li className="TodoContent-item" key={index}>
-            <section className="TodoContent-item-title">{ index + 1 }、{ item.title }</section>
+            <section className="TodoContent-item-title">
+              {index + 1}、{item.title}
+            </section>
             <section className="TodoContent-item-btns">
-              <div className="TodoContent-item-btn" onClick={() => onDelete(item)}>
-                <CloseOne theme="outline" size="23" fill="rgb(196,196,196)"/>
+              <div
+                className="TodoContent-item-btn"
+                onClick={() => onDelete(item)}
+              >
+                <CloseOne theme="outline" size="23" fill="rgb(196,196,196)" />
               </div>
-              <div className="TodoContent-item-btn" onClick={() => onCompete(item)}>
-                <CheckOne theme="outline" size="23" fill="rgb(196,196,196)"/>
+              <div
+                className="TodoContent-item-btn"
+                onClick={() => onCompete(item)}
+              >
+                <CheckOne theme="outline" size="23" fill="rgb(196,196,196)" />
               </div>
             </section>
-          </li>)
-        }
+          </li>
+        ))}
       </ul>
       <form className="TodoContent-add" onSubmit={onSubmit}>
         <input className={text.length > 0 ? "input-active" : "input-default"} type="text" placeholder="something" value={text} onChange={e => setText(e.target.value)} />
@@ -146,8 +162,8 @@ const TodoContent : React.FC<TodoContentProps> = (props) => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
 interface DoneContentProps {
   list: [
@@ -157,35 +173,41 @@ interface DoneContentProps {
       createTime: number,
       doneTime: number,
     }
-  ],
-  onDelete: (item : TodoItem) => void,
-  onRedo: (item : TodoItem) => void
+  ];
+  onDelete: (item: TodoItem) => void;
+  onRedo: (item: TodoItem) => void;
 }
 
-const DoneContent : React.FC<DoneContentProps> = (props) => {
-  const { list, onDelete, onRedo } = props
+const DoneContent: React.FC<DoneContentProps> = (props) => {
+  const { list, onDelete, onRedo } = props;
 
   return (
     <div className="DoneContent">
       <ul className="DoneContent-list">
-        {
-          list.map((item : DoneItem, index : number) => 
+        {list.map((item: DoneItem, index: number) => (
           <li className="DoneContent-item" key={index}>
-            <section className="DoneContent-item-title">{ index + 1 }、{ item.title }</section>
+            <section className="DoneContent-item-title">
+              {index + 1}、{item.title}
+            </section>
             <section className="DoneContent-item-btns">
-              <div className="DoneContent-item-btn" onClick={() => onRedo(item)}>
-                <ReduceOne theme="outline" size="23" fill="rgb(196,196,196)"/>
+              <div
+                className="DoneContent-item-btn"
+                onClick={() => onRedo(item)}
+              >
+                <ReduceOne theme="outline" size="23" fill="rgb(196,196,196)" />
               </div>
-              <div className="DoneContent-item-btn" onClick={() => onDelete(item)}>
-                <CloseOne theme="outline" size="23" fill="rgb(196,196,196)"/>
+              <div
+                className="DoneContent-item-btn"
+                onClick={() => onDelete(item)}
+              >
+                <CloseOne theme="outline" size="23" fill="rgb(196,196,196)" />
               </div>
             </section>
-          </li>)
-        }
+          </li>
+        ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-
-export default LongTimeTodo
+export default LongTimeTodo;
