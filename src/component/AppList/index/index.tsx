@@ -2,6 +2,7 @@ import { AddOne, SettingOne } from "@icon-park/react"
 import { addApp } from "../Modal/AddModal"
 import { editApp } from "../Modal/EditModal"
 import './index.css'
+// import '@/styles/animation.css'
 import errorImg from "/assets/icon/error.png"
 import { openWindow } from "../Window"
 import { useLocalStorageState } from "@/hooks/useLocalStorageState"
@@ -11,7 +12,7 @@ export const AppList = () => {
     // const [preAppList, setPreAppList] = useState([])
     const [userAppList, setUserAppList] = useLocalStorageState('userAppList', defaultUserAppList)
     
-    const onError = (e: any) => {;
+    const onError = (e: any) => {
       e.target.src = errorImg
     }
   

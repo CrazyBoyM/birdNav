@@ -11,14 +11,7 @@
   box-shadow: 3px 6px 16px rgba(0,0,0,.96);
   cursor: pointer;
   z-index: 2;
-  animation: fade-in;  
-  animation-duration: .3s;
 }
-@keyframes fade-in {  
-  0% {opacity: 0; transform: translateY(100%);}
-  50% {opacity: 0.6;} 
-  100% {opacity: 1;} 
-} 
 
 .SearchSuggestion > ul {
   margin: 19px 23px 19px 36px;
