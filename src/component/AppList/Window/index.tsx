@@ -1,11 +1,8 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// @ts-ignore
 import closeAppWindow from "/assets/icon/closeAppWindow.svg";
-// @ts-ignore
 import foldAppWindow from "/assets/icon/foldAppWindow.svg";
-// @ts-ignore
 import fullScreen from "/assets/icon/fullScreen.svg";
 import { getMaxZindex, setMaxZindex } from "@/store/global";
 import { getLocal, setLocal } from "@/utils/local";
