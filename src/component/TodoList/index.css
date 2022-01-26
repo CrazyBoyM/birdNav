@@ -27,7 +27,6 @@
 }
 
 .todo-header-title {
-  width: 160px;
   padding: 23px;
   font-size: 26px;
   letter-spacing: 3px;
@@ -93,6 +92,7 @@
   font-weight: 700;
   transform: scale(1.05);
   font-weight: 700;
+  transition: ease-in-out 0.12s;
 }
 
 .TodoContent-item-title,
@@ -145,7 +145,8 @@
   display: flex;
   justify-content: center;
 }
-.TodoContent-add > input {
+.input-default,
+.input-active {
   width: 106px;
   margin-right: 36px;
   text-align: center;
@@ -154,7 +155,15 @@
   border-bottom: 1px solid rgb(165, 165, 165);
   transition: ease-in-out 0.3s;
 }
-.TodoContent-add > input:focus {
+.input-active {
   width: 256px;
   border-bottom: 1px solid #fff;
+}
+.TodoContent-add-btn {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.TodoContent-add-btn:hover {
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }

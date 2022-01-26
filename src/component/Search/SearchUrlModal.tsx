@@ -5,7 +5,7 @@ import '@/styles/ModalPublic.css'
 import { defaultSearchList } from '@/store/search'
 import { getLocal, setLocal } from '@/utils/local'
 
-export const addUrl = (categoryIndex : number) => {
+export const addUrl = (categoryIndex : number, setSearchUrlList : Function) => {
 
   let el = document.createElement('div')
   document.body.appendChild(el)
@@ -21,6 +21,7 @@ export const addUrl = (categoryIndex : number) => {
       searchList[categoryIndex]['urls'].push(newUrlData)
 
       setLocal('searchList', searchList)
+      setSearchUrlList(searchList)
     } catch (err) {
       console.log(err)
     }
@@ -37,7 +38,7 @@ export const addUrl = (categoryIndex : number) => {
   )
 }
 
-export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : number) => {
+export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : number, setSearchUrlList : Function) => {
   let el = document.createElement('div')
   document.body.appendChild(el)
 
@@ -51,6 +52,7 @@ export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : numb
       searchList[categoryIndex]['urls'][searchIndex] = newUrlData
 
       setLocal('searchList', searchList)
+      setSearchUrlList(searchList)
     } catch (err) {
       console.log(err)
     }
@@ -71,6 +73,7 @@ export const editUrl = (urlData : {}, categoryIndex : number, searchIndex : numb
       console.log(searchList)
 
       setLocal('searchList', searchList)
+      setSearchUrlList(searchList)
     } catch (err) {
       console.log(err)
     }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { jsonp } from 'vue-jsonp'
 import './SearchSuggestion.css'
+import '@/styles/animation.css'
 
 interface SearchSuggestProps {
   keyword: string;
@@ -22,7 +23,7 @@ const SearchSuggestion : React.FC<SearchSuggestProps> = (props) => {
   }, [keyword]);
 
   return (
-    <section className="SearchSuggestion">
+    <section className="SearchSuggestion fade-up">
       <ul>
       {
         list.map((suggestion, index) => {

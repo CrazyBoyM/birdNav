@@ -1,17 +1,7 @@
 import { useLocalStorageState } from "@/hooks/useLocalStorageState";
 import { defaultShortTodoList } from "@/store/todo";
 import resolveClasses from "@/utils/resolveClasses";
-import {
-  Add,
-  Check,
-  CheckOne,
-  Close,
-  CloseOne,
-  CloseSmall,
-  Correct,
-  Plus,
-  ReduceOne,
-} from "@icon-park/react";
+import { CheckOne, CloseOne, Plus, ReduceOne } from "@icon-park/react";
 import { nanoid } from "nanoid";
 import React, { useState } from "react";
 import "./index.css";
@@ -19,11 +9,14 @@ import "./index.css";
 interface TodoItem {
   id: string;
   title: string;
+  createTime: number;
 }
 
 interface DoneItem {
   id: string;
   title: string;
+  createTime: number;
+  doneTime: number;
 }
 
 const ShortTimeTodo = () => {
@@ -34,9 +27,9 @@ const ShortTimeTodo = () => {
   const [doneList, setDoneList] = useLocalStorageState("short-donelist", []);
   const [type, setType] = useState("todo");
 
-  const addTodoItem = (content: string) => {
-    if (!content) return;
-    const newTodoItem = { id: nanoid(), title: content };
+  const addTodoItem = (content: { title: string; createTime: number }) => {
+    if (!content.title) return;
+    const newTodoItem = { id: nanoid(), ...content };
     const newTodoList = [newTodoItem, ...todoList];
     setTodoList(newTodoList);
   };
@@ -52,7 +45,14 @@ const ShortTimeTodo = () => {
     const newTodoList = todoList.filter(
       (todo: TodoItem) => todo.id !== item.id
     );
-    const newDoneList = [item, ...doneList];
+    const newDoneList = [
+      {
+        ...item,
+        doneTime: new Date().getTime(),
+      },
+      ...doneList,
+    ];
+    console.log(newDoneList);
     setTodoList(newTodoList);
     setDoneList(newDoneList);
   };
@@ -75,7 +75,7 @@ const ShortTimeTodo = () => {
 
   return (
     <section className="todo">
-      <TodoHeader type={type} setType={setType} onAdd={addTodoItem} />
+      <TodoHeader type={type} setType={setType} />
       {type === "todo" && (
         <TodoContent
           list={todoList}
@@ -98,15 +98,16 @@ const ShortTimeTodo = () => {
 interface TodoHeaderProps {
   type: string;
   setType: (value: string) => void;
-  onAdd: (content: string) => void;
 }
 
 const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
-  const { type, setType, onAdd } = props;
+  const { type, setType } = props;
+
+  const date = new Date();
 
   return (
     <section className="todo-header">
-      <span className="todo-header-title">近一周</span>
+      <span className="todo-header-title">近期待办</span>
       <section className="todo-header-btns">
         <section
           className={resolveClasses(
@@ -136,9 +137,10 @@ interface TodoContentProps {
     {
       id: string;
       title: string;
+      createTime: number;
     }
   ];
-  onAdd: (content: string) => void;
+  onAdd: (content: { title: string; createTime: number }) => void;
   onDelete: (item: TodoItem) => void;
   onCompete: (item: TodoItem) => void;
 }
@@ -148,7 +150,10 @@ const TodoContent: React.FC<TodoContentProps> = (props) => {
   const [text, setText] = useState("");
   const onSubmit = (e: any) => {
     e.preventDefault();
-    onAdd(text);
+    onAdd({
+      title: text,
+      createTime: new Date().getTime(),
+    });
     setText("");
   };
 
@@ -179,17 +184,15 @@ const TodoContent: React.FC<TodoContentProps> = (props) => {
       </ul>
       <form className="TodoContent-add" onSubmit={onSubmit}>
         <input
+          className={text.length > 0 ? "input-active" : "input-default"}
           type="text"
-          placeholder="something..."
+          placeholder="todo"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <Plus
-          onClick={onSubmit}
-          theme="outline"
-          size="23"
-          fill="rgb(196,196,196)"
-        />
+        <div className="TodoContent-add-btn center" onClick={onSubmit}>
+          <Plus theme="outline" size="23" fill="rgb(196,196,196)" />
+        </div>
       </form>
     </div>
   );
@@ -200,6 +203,8 @@ interface DoneContentProps {
     {
       id: string;
       title: string;
+      createTime: number;
+      doneTime: number;
     }
   ];
   onDelete: (item: TodoItem) => void;

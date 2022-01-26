@@ -1,112 +1,86 @@
-import { useLocalStorageState } from "@/hooks/useLocalStorageState";
-import { defaultLongTodoList } from "@/store/todo";
-import resolveClasses from "@/utils/resolveClasses";
-import {
-  Add,
-  Check,
-  CheckOne,
-  Close,
-  CloseOne,
-  CloseSmall,
-  Correct,
-  Plus,
-  ReduceOne,
-} from "@icon-park/react";
-import { nanoid } from "nanoid";
-import React, { useState } from "react";
-import "./index.css";
+import { useLocalStorageState } from '@/hooks/useLocalStorageState'
+import { defaultLongTodoList } from '@/store/todo'
+import resolveClasses from '@/utils/resolveClasses'
+import { CheckOne, CloseOne, Plus, ReduceOne } from '@icon-park/react'
+import { nanoid } from 'nanoid'
+import React, { useState } from 'react'
+import './index.css'
 
 interface TodoItem {
-  id: string;
-  title: string;
+  id: string,
+  title: string,
+  createTime: number,
 }
 
 interface DoneItem {
-  id: string;
-  title: string;
+  id: string,
+  title: string,
+  createTime: number,
+  doneTime: number
 }
 
 const LongTimeTodo = () => {
-  const [todoList, setTodoList] = useLocalStorageState(
-    "long-todolist",
-    defaultLongTodoList
-  );
-  const [doneList, setDoneList] = useLocalStorageState("long-donelist", []);
-  const [type, setType] = useState("todo");
+  const [todoList, setTodoList] = useLocalStorageState('long-todolist', defaultLongTodoList)
+  const [doneList, setDoneList] = useLocalStorageState('long-donelist', [])
+  const [type, setType] = useState('todo')
 
-  const addTodoItem = (content: string) => {
-    if (!content) return;
-    const newTodoItem = { id: nanoid(), title: content };
-    const newTodoList = [newTodoItem, ...todoList];
-    setTodoList(newTodoList);
-  };
+  const addTodoItem = (content : { title : string, createTime : number }) => {
+    if (!content.title) return
+    const newTodoItem = { id: nanoid(), ...content }
+    const newTodoList = [newTodoItem, ...todoList]
+    setTodoList(newTodoList)
+  }
 
-  const deleteTodoItem = (item: TodoItem) => {
-    const newTodoList = todoList.filter(
-      (todo: TodoItem) => todo.id !== item.id
-    );
-    setTodoList(newTodoList);
-  };
+  const deleteTodoItem = (item : TodoItem) => {
+    const newTodoList = todoList.filter((todo : TodoItem) => todo.id !== item.id)
+    setTodoList(newTodoList)
+  }
 
-  const competeTodoItem = (item: TodoItem) => {
-    const newTodoList = todoList.filter(
-      (todo: TodoItem) => todo.id !== item.id
-    );
-    const newDoneList = [item, ...doneList];
-    setTodoList(newTodoList);
-    setDoneList(newDoneList);
-  };
+  const competeTodoItem = (item : TodoItem) => {
+    const newTodoList = todoList.filter((todo : TodoItem) => todo.id !== item.id)
+    const newDoneList = [{
+      ...item,
+      doneTime: new Date().getTime()
+    }, ...doneList]
+    console.log(newDoneList)
+    setTodoList(newTodoList)
+    setDoneList(newDoneList)
+  }
 
-  const deleteDoneItem = (item: TodoItem) => {
-    const newDoneList = doneList.filter(
-      (done: DoneItem) => done.id !== item.id
-    );
-    setDoneList(newDoneList);
-  };
+  const deleteDoneItem = (item : TodoItem) => {
+    const newDoneList = doneList.filter((done : DoneItem) => done.id !== item.id)
+    setDoneList(newDoneList)
+  }
 
-  const redoDoneItem = (item: TodoItem) => {
-    const newDoneList = doneList.filter(
-      (done: DoneItem) => done.id !== item.id
-    );
-    const newTodoList = [item, ...todoList];
-    setDoneList(newDoneList);
-    setTodoList(newTodoList);
-  };
+  const redoDoneItem = (item : TodoItem) => {
+    const newDoneList = doneList.filter((done : DoneItem) => done.id !== item.id)
+    const newTodoList = [item, ...todoList]
+    setDoneList(newDoneList)
+    setTodoList(newTodoList)
+  }
 
   return (
     <section className="todo">
-      <TodoHeader type={type} setType={setType} onAdd={addTodoItem} />
-      {type === "todo" && (
-        <TodoContent
-          list={todoList}
-          onAdd={addTodoItem}
-          onDelete={deleteTodoItem}
-          onCompete={competeTodoItem}
-        />
-      )}
-      {type === "done" && (
-        <DoneContent
-          list={doneList}
-          onDelete={deleteDoneItem}
-          onRedo={redoDoneItem}
-        />
-      )}
+      <TodoHeader type={type} setType={setType} />
+      { type === 'todo' && <TodoContent list={todoList} onAdd={addTodoItem} onDelete={deleteTodoItem} onCompete={competeTodoItem} /> }
+      { type === 'done' && <DoneContent list={doneList} onDelete={deleteDoneItem} onRedo={redoDoneItem} /> }
     </section>
   );
 };
 
 interface TodoHeaderProps {
-  type: string;
-  setType: (value: string) => void;
-  onAdd: (content: string) => void;
+  type: string,
+  setType: (value: string) => void
 }
 
-const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
-  const { type, setType, onAdd } = props;
+const TodoHeader : React.FC<TodoHeaderProps> = (props) => {
+  const { type, setType } = props
+
+  const date = new Date()
 
   return (
     <section className="todo-header">
-      <span className="todo-header-title">一年内</span>
+      <span className="todo-header-title">月度计划</span>
       <section className="todo-header-btns">
         <section
           className={resolveClasses(
@@ -134,23 +108,27 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
 interface TodoContentProps {
   list: [
     {
-      id: string;
-      title: string;
+      id: string,
+      title: string, 
+      createTime: number,
     }
-  ];
-  onAdd: (content: string) => void;
-  onDelete: (item: TodoItem) => void;
-  onCompete: (item: TodoItem) => void;
+  ],
+  onAdd: (content: { title : string, createTime : number }) => void,
+  onDelete: (item : TodoItem) => void,
+  onCompete: (item : TodoItem) => void
 }
 
-const TodoContent: React.FC<TodoContentProps> = (props) => {
-  const { list, onAdd, onDelete, onCompete } = props;
-  const [text, setText] = useState("");
-  const onSubmit = (e: any) => {
-    e.preventDefault();
-    onAdd(text);
-    setText("");
-  };
+const TodoContent : React.FC<TodoContentProps> = (props) => {
+  const { list, onAdd, onDelete, onCompete } = props
+  const [text, setText] = useState('')
+  const onSubmit = (e : any) => {
+    e.preventDefault()
+    onAdd({
+      title: text,
+      createTime: new Date().getTime()
+    })
+    setText('')
+  }
 
   return (
     <div className="TodoContent">
@@ -178,18 +156,10 @@ const TodoContent: React.FC<TodoContentProps> = (props) => {
         ))}
       </ul>
       <form className="TodoContent-add" onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="something..."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <Plus
-          onClick={onSubmit}
-          theme="outline"
-          size="23"
-          fill="rgb(196,196,196)"
-        />
+        <input className={text.length > 0 ? "input-active" : "input-default"} type="text" placeholder="something" value={text} onChange={e => setText(e.target.value)} />
+        <div className="TodoContent-add-btn center" onClick={onSubmit}>
+          <Plus theme="outline" size="23" fill="rgb(196,196,196)"/>
+        </div>
       </form>
     </div>
   );
@@ -198,8 +168,10 @@ const TodoContent: React.FC<TodoContentProps> = (props) => {
 interface DoneContentProps {
   list: [
     {
-      id: string;
-      title: string;
+      id: string,
+      title: string,
+      createTime: number,
+      doneTime: number,
     }
   ];
   onDelete: (item: TodoItem) => void;

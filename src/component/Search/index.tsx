@@ -1,19 +1,19 @@
 import { useLocalStorageState } from "@/hooks/useLocalStorageState";
 import { defaultCurrentSearch } from "@/store/search";
-import resolveClasses from "@/utils/resolveClasses";
 import {
+  CloseSmall,
   Down,
-  More,
-  MoreApp,
-  MoreOne,
-  MoreThree,
-  MoreTwo,
+  Search as SearchIcon,
   Right,
+  Close,
+  CloseOne,
 } from "@icon-park/react";
 import { useState, useEffect } from "react";
 import "./index.css";
+import "@/styles/animation.css";
 import SearchSuggestion from "./SearchSuggestion";
 import { SearchUrlList } from "./SearchUrlList";
+import resolveClasses from "@/utils/resolveClasses";
 
 const Search = () => {
   const [searchUrl, setSearchUrl] = useLocalStorageState(
@@ -22,8 +22,24 @@ const Search = () => {
   );
   const [keyword, setKeyword] = useState("");
   const [showSearchUrlList, setShowSearchUrlList] = useState(false);
-  const [inputFocus, setInputFocus] = useState(false);
-
+  const [keywordVisible, setKeywordVisible] = useState(false);
+  const [focusHighlight, setFocusHighlight] = useState(false);
+  useEffect(() => {
+    setKeywordVisible(!!keyword);
+    return () => setKeywordVisible(false);
+  }, [keyword]);
+  useEffect(() => {
+    const callback = () => {
+      console.log("here");
+      setShowSearchUrlList(false);
+      setKeywordVisible(false);
+    };
+    document.addEventListener("click", callback, false);
+    return () => {
+      console.log("distory");
+      document.removeEventListener("click", callback, false);
+    };
+  }, []);
   // go to search page
   const handleSearchGo = (e: any) => {
     e.preventDefault();
@@ -32,15 +48,22 @@ const Search = () => {
   };
 
   return (
-    <div className="Search">
+    <div className="Search fade-down">
       {searchUrl && (
         <div
-          className={resolveClasses("SearchBar", inputFocus ? "active" : "")}
+          className={resolveClasses(
+            "SearchBar",
+            focusHighlight ? "active" : ""
+          )}
         >
           <div className="SearchUrl rowcenter">
             <span
-              className="rowcenter"
-              onClick={() => setShowSearchUrlList(!showSearchUrlList)}
+              className="urlTag rowcenter"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowSearchUrlList(!showSearchUrlList);
+                setKeywordVisible(false);
+              }}
             >
               {searchUrl.title}
               {showSearchUrlList ? (
@@ -55,7 +78,7 @@ const Search = () => {
                 setSearchUrl={setSearchUrl}
               />
             )}
-            {keyword.length > 0 && (
+            {keywordVisible && (
               <SearchSuggestion keyword={keyword} setKeyword={setKeyword} />
             )}
           </div>
@@ -65,41 +88,32 @@ const Search = () => {
               value={keyword}
               placeholder={searchUrl.describtion}
               onChange={(e) => setKeyword(e.target.value)}
-              onFocus={() => setInputFocus(true)}
-              onBlur={() => setInputFocus(false)}
+              onClick={(e) => e.stopPropagation()}
+              onFocus={(e) => {
+                setShowSearchUrlList(false);
+                setKeywordVisible(!!keyword);
+                setFocusHighlight(true);
+              }}
+              onBlur={() => {
+                setFocusHighlight(false);
+              }}
             ></input>
           </form>
-          <div className="SearchButton center" onClick={handleSearchGo}>
-            <svg
-              width="19"
-              height="19"
-              viewBox="0 0 50 50"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="50" height="50" fill="white" fillOpacity="0.01" />
-              <path
-                d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z"
-                fill="none"
-                stroke="#fff"
-                strokeWidth="3"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M26.6568 14.3431C25.2091 12.8954 23.2091 12 21 12C18.7909 12 16.7909 12.8954 15.3431 14.3431"
-                stroke="#fff"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M33.2218 33.2218L41.7071 41.7071"
-                stroke="#fff"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+          {keyword.length > 0 && (
+            <CloseSmall
+              onClick={() => setKeyword("")}
+              theme="outline"
+              size="19"
+              fill="#ddd"
+            />
+          )}
+          <div className="SearchButton rowcenter">
+            <SearchIcon
+              onClick={handleSearchGo}
+              theme="outline"
+              size="19"
+              fill="#fff"
+            />
           </div>
         </div>
       )}
