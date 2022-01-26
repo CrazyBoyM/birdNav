@@ -9,12 +9,13 @@
   0px 0px 6px rgba(0,0,0,0.1) inset;
   animation: fade-in;
   animation-duration: .3s;
+  transition: all 0.3s ease-in-out;
 }
-@keyframes fade-in {  
+@keyframes fade-in {
   0% {opacity: 0; transform: translateY(100%);}
-  50% {opacity: 0.6;} 
-  100% {opacity: 1;} 
-} 
+  50% {opacity: 0.6;}
+  100% {opacity: 1;}
+}
 .AppWindowHeader {
   display: flex;
   flex-direction: row;
