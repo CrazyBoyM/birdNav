@@ -2,11 +2,9 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-import closeAppWindow from "/assets/icon/closeAppWindow.svg";
-import foldAppWindow from "/assets/icon/foldAppWindow.svg";
-import fullScreen from "/assets/icon/fullScreen.svg";
 import { getMaxZindex, setMaxZindex } from "@/store/global";
 import { getLocal, setLocal } from "@/utils/local";
+import { Close, FullScreen, Minus } from "@icon-park/react";
 
 interface app {
   id: string;
@@ -321,14 +319,14 @@ const Window = (props: any) => {
         <div className="Title">{appData.name}</div>
         <div className="Menu">
           <a onClick={foldWindow}>
-            <img src={foldAppWindow} />
+            <Minus theme="outline" size="19" fill="#666"/>
           </a>
           <a onClick={fullWindow}>
-            <img src={fullScreen} />
+            <FullScreen theme="outline" size="19" fill="#666"/>
           </a>
           {!isMaximized && (
             <a onClick={closeWindow}>
-              <img src={closeAppWindow} />
+              <Close theme="outline" size="19" fill="#666"/>
             </a>
           )}
         </div>
