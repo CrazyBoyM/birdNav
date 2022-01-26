@@ -19,7 +19,7 @@ import {
 export const AppList = () => {
   // 内置应用列表属于不可删改的应用
   // const [preAppList, setPreAppList] = useState([])
-  // todo: 网址文件夹管理器子应用、小游戏
+  // todo: 网址文件夹管理器（）子应用、小游戏
   // 用户列表属于可自由改动操作的部分
   const [userAppList, setUserAppList] = useLocalStorageState(
     "userAppList",
@@ -55,15 +55,15 @@ export const AppList = () => {
         target!.style.transform = "scale(1.6)";
         const scalePre = 0.6;
         const rect = target?.getBoundingClientRect();
-        const offet =
+        const offset =
           Math.abs(e.nativeEvent.clientX - rect!.left) / rect!.width;
         if (prev) {
           prev!.style.transform = `scale(${
-            1 + scalePre * Math.abs(offet - 1)
+            1 + scalePre * Math.abs(offset - 1)
           }) `;
         }
         if (next) {
-          next!.style.transform = `scale(${1 + scalePre * offet})`;
+          next!.style.transform = `scale(${1 + scalePre * offset})`;
         }
       }
     },
@@ -78,15 +78,15 @@ export const AppList = () => {
         const next = appListAppRef.current[index + 1];
         const scalePre = 0.6;
         const rect = target?.getBoundingClientRect();
-        const offet =
+        const offset =
           Math.abs(e.nativeEvent.clientX - rect!.left) / rect!.width;
         if (prev) {
           prev!.style.transform = `scale(${
-            1 + scalePre * Math.abs(offet - 1)
+            1 + scalePre * Math.abs(offset - 1)
           }) `;
         }
         if (next) {
-          next!.style.transform = `scale(${1 + scalePre * offet})`;
+          next!.style.transform = `scale(${1 + scalePre * offset})`;
         }
       }
     },

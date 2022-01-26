@@ -19,12 +19,17 @@ export const SearchUrlList = (props: any) => {
 
   interface category {
     name: string;
-    urls: [];
+    urls: 
+      {
+        title: string;
+        describtion: string;
+        url: string;
+      }[];
   }
 
   interface url {
     title: string;
-    description: string;
+    describtion: string;
     url: string;
   }
 
