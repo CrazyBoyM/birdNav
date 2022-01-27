@@ -19,6 +19,7 @@
   background-color: var(--AppList-background);
   backdrop-filter: blur(3.6px);
   border-radius: 19.6px;
+  transition: all 0.1s ease-in-out;
 }
 
 .AppList-left {
@@ -41,7 +42,7 @@
 .AppList-app {
   margin: 13px 0;
   width: 60px;
-  transition: all 0.15s ease-out;
+  transition: all 0.19s ease-out;
   cursor: pointer;
 }
 .AppList-app > img,
@@ -54,10 +55,10 @@
   border-radius: 50%;
 }
 .AppList-bottom > .AppList-app:hover {
-  padding-bottom: 6px;
-  transform: scale(1.1);
+  margin: 13px 12px;
+  padding-bottom: 16px;
 }
 .AppList-left > .AppList-app:hover {
+  margin: 13px 19px;
   padding-left: 9.6px;
-  transform: scale(1.1);
 }

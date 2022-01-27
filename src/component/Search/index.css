@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   width: 550px;
-  height: 42px;
+  height: 43px;
   border-radius: 36px;
   background-color: var(--SearchBar-background);
   border: 2px transparent solid;
@@ -19,7 +19,7 @@
 }
 
 .SearchBar.active {
-  border: 2px rgba(255, 255, 255, 0.8) solid;
+  border: 2px rgba(255, 255, 255, 0.72) solid;
 }
 .SearchBar > form {
   display: flex;
