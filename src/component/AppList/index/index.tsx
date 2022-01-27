@@ -15,6 +15,7 @@ import {
   useEffect,
   useRef,
 } from "react";
+import LoImage from "./LoImage";
 
 export const AppList = () => {
   // 内置应用列表属于不可删改的应用
@@ -25,10 +26,6 @@ export const AppList = () => {
     "userAppList",
     defaultUserAppList
   );
-
-  const onError: ReactEventHandler<HTMLImageElement> = (e) => {
-    (e.target as HTMLImageElement).src = errorImg;
-  };
 
   const runApp = (appData: UserApp, appIndex: number) => {
     if (appData.type === "inner") {
@@ -145,12 +142,11 @@ export const AppList = () => {
               onMouseLeave={appMounseLeave}
               onMouseMove={appMounseMove}
             >
-              <img
-                className="AppList-app-logo"
+              <LoImage
                 src={appData.logo}
                 alt={appData.name}
-                onError={onError}
-              ></img>
+                feedback={<img src={errorImg} alt={appData.name} />}
+              />
             </div>
           ))}
         <div
