@@ -41,13 +41,15 @@
 .AppList-app {
   margin: 13px 0;
   width: 60px;
-  transition: all 0.3s ease-out;
+  transition: all 0.15s ease-out;
   cursor: pointer;
 }
 .AppList-app > img,
 .AppList-app > span {
+  display: inline-block;
   padding: 6.9px;
   width: 30px;
+  height: 30px;
   background: #eee;
   border-radius: 50%;
 }
