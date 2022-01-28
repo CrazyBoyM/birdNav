@@ -42,7 +42,7 @@ export const AppList = () => {
     [userAppList]
   );
 
-  const appMounseEnter = useCallback(
+  const appMouseEnter = useCallback(
     (e: SyntheticEvent<HTMLElement, MouseEvent>) => {
       const index = appListAppRef.current.indexOf(e.currentTarget);
       if (index >= 0) {
@@ -66,7 +66,7 @@ export const AppList = () => {
     },
     [userAppList]
   );
-  const appMounseMove = useCallback(
+  const appMouseMove = useCallback(
     (e: SyntheticEvent<HTMLElement, MouseEvent>) => {
       const index = appListAppRef.current.indexOf(e.currentTarget);
       if (index >= 0) {
@@ -89,7 +89,7 @@ export const AppList = () => {
     },
     [userAppList]
   );
-  const appMounseLeave = useCallback(
+  const appMouseLeave = useCallback(
     (e: SyntheticEvent<HTMLElement, MouseEvent>) => {
       const index = appListAppRef.current.indexOf(e.currentTarget);
       if (index >= 0) {
@@ -116,9 +116,9 @@ export const AppList = () => {
           className="AppList-app center"
           onClick={() => {}}
           ref={getAppListApp}
-          onMouseEnter={appMounseEnter}
-          onMouseLeave={appMounseLeave}
-          onMouseMove={appMounseMove}
+          onMouseEnter={appMouseEnter}
+          onMouseLeave={appMouseLeave}
+          onMouseMove={appMouseMove}
         >
           <SettingOne
             theme="outline"
@@ -138,9 +138,9 @@ export const AppList = () => {
                 editApp(appData, appIndex, userAppList, setUserAppList);
               }}
               ref={getAppListApp}
-              onMouseEnter={appMounseEnter}
-              onMouseLeave={appMounseLeave}
-              onMouseMove={appMounseMove}
+              onMouseEnter={appMouseEnter}
+              onMouseLeave={appMouseLeave}
+              onMouseMove={appMouseMove}
             >
               <LoImage
                 src={appData.logo}
@@ -153,9 +153,9 @@ export const AppList = () => {
           className="AppList-app center"
           onClick={() => addApp(userAppList, setUserAppList)}
           ref={getAppListApp}
-          onMouseEnter={appMounseEnter}
-          onMouseLeave={appMounseLeave}
-          onMouseMove={appMounseMove}
+          onMouseEnter={appMouseEnter}
+          onMouseLeave={appMouseLeave}
+          onMouseMove={appMouseMove}
         >
           <AddOne theme="outline" size="30" fill="slateblue" strokeWidth={3} />
         </div>
