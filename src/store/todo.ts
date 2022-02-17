@@ -1,7 +1,7 @@
 const defaultLongTodoList = [
   {
     id: "qt-SUQNbOKK4n4Zn8izTV",
-    title: "务必在7个月内学完MIT数学基础课程",
+    title: "在7个月内学完MIT数学基础课程",
     createTime: 1643096714078,
   },
   {
@@ -27,6 +27,11 @@ const defaultLongTodoList = [
 ];
 
 const defaultShortTodoList = [
+  {
+    id: "0UvstY435GXVLVhFPl6er",
+    title: "网站正式版本启动",
+    createTime: 1643094738177,
+  },
   {
     id: "Ixq4XYjhkASrHcuUy4f6k",
     title: "去跑步三十分钟 * 3次",
