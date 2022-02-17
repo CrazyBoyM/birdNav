@@ -19,7 +19,7 @@ const setLocal = (keyName: string, data: any) => {
 
 const clearLocal = () => {
   try {
-    window.localStorage.clear();
+    window.localStorage.removeItem('keyName');
   } catch (e) {
     console.error(e);
   }

@@ -1,4 +1,4 @@
-import { appVersion } from "@/store/config";
+import { appVersion } from "@/store/versions";
 import { clearLocal, getLocal, setLocal } from "./local";
 
 const localDataUpdate = () => {
