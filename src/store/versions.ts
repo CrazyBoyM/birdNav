@@ -8,6 +8,6 @@
 //   'userAppList': '1.0.0',
 // };
 
-const appVersion = "1.0.3";
+const appVersion = "1.1.0";
 
 export { appVersion };
