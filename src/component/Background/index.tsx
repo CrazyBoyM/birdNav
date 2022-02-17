@@ -1,6 +1,6 @@
-// import fengLin from '@/assets/bg/fenglin.mp4'
 import { useState, useLayoutEffect } from "react"
 import ReactDOM from "react-dom"
+import './index.css'
 
 export const Background = () => {
   const [style, setStyle] = useState({});

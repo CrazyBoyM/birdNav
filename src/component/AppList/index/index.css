@@ -51,7 +51,7 @@
   padding: 6.9px;
   width: 30px;
   height: 30px;
-  background: #eee;
+  background: rgb(228, 226, 226, .6);
   border-radius: 50%;
 }
 .AppList-bottom > .AppList-app:hover {

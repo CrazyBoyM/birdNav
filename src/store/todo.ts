@@ -1,76 +1,61 @@
 const defaultLongTodoList = [
   {
     id: "qt-SUQNbOKK4n4Zn8izTV",
-    title: "本月晚上不晚于11：30睡",
+    title: "务必在7个月内学完MIT数学基础课程",
     createTime: 1643096714078,
   },
   {
     id: "nqw-TNX8L32b6Dkk8izkC",
-    title: "每天上午七点都要起来学习",
+    title: "每天上午六点半起床坚持写博客",
     createTime: 1643096677407,
   },
   {
-    id: "tATCUl8QzHFzN-EUfizrl",
-    title: "开始坚持写博客和公众号笔记",
-    createTime: 1643095065063,
-  },
-  {
     id: "9qeGBwEtc74QZR97HjxoO",
-    title: "王者打到钻石I段位",
+    title: "王者打到星耀段位",
     createTime: 1643094950696,
   },
   {
-    id: "jPrVxU2orx0TX4YPOvo4T",
-    title: "上线第一个稳定正式版本",
-    createTime: 1643094892823,
-  },
-  {
-    id: "s7m-vimYwYTxJDAWUxyFc",
-    title: "开发子应用 - 书签文件夹",
-    createTime: 1643094785336,
-  },
-  {
     id: "0UvstY435GXVLVhFPl5jr",
-    title: "开发完飞鸟导航主体",
+    title: "每天至少去健身房锻炼1小时",
+    createTime: 1643094738177,
+  },
+  {
+    id: "0UvstY435GXVLVhFPl6er",
+    title: "读完Vue的源码分析",
     createTime: 1643094738177,
   },
 ];
 
 const defaultShortTodoList = [
   {
-    id: "9opD-3_QlphAkrxr7IH4K",
-    title: "煮泡面，加鸡蛋，再烤两个煎饼",
-    createTime: 1643096522559,
-  },
-  {
     id: "Ixq4XYjhkASrHcuUy4f6k",
-    title: "做三十个仰卧起坐",
+    title: "去跑步三十分钟 * 3次",
     createTime: 1643096402279,
   },
   {
     id: "Io2SP9DoIBFZyW3OgiBNQ",
-    title: "下雪了，堆一个雪人吧",
+    title: "追漫威最近的电影 * 3部",
     createTime: 1643096385839,
   },
   {
     id: "Nx72Sq9RWOxyfbG7uNEjt",
-    title: "和大佬一块修改界面风格",
+    title: "复习飞桨创造营的课程",
     createTime: 1643096326151,
   },
   {
     id: "Xyt8D9ZKSJAoAsxN_GfHf",
-    title: "github.com/CrazyBoyM/birdNav",
+    title: "写一个OCR识别网页的开源工具",
     createTime: 1643096317888,
   },
   {
     id: "IWCtUN0u1FaJdaFy20kQp",
-    title: "优化完善下高考完那份代码",
-    createTime: 1643096300170,
+    title: "nestjs做后端开发",
+    createTime: 1643096300666,
   },
   {
     id: "0UN2W5kTbvBzMn3BYabUI",
     title: "晚上群里组队打王者",
-    createTime: 1643096241984,
+    createTime: 1643096241999,
   },
 ];
 

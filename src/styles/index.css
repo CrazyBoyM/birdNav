@@ -20,27 +20,3 @@ code {
   background: var(--main-background);
   z-index: 0;
 }
-
-.bg {
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background-image: url("/assets/bg/win11-light.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.changeBg {
-  margin: 15px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  color: aliceblue;
-  cursor: pointer;
-}
-
-#bg-video {
-  display: block;
-  object-fit: cover;
-}
