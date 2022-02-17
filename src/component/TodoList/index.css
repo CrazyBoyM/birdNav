@@ -27,9 +27,11 @@
 }
 
 .todo-header-title {
+  color: #eee;
   padding: 23px;
   font-size: 26px;
-  letter-spacing: 3px;
+  font-style: italic;
+  letter-spacing: 1.3px;
 }
 
 .todo-header-btns {
@@ -108,12 +110,12 @@
   display: flex;
   align-items: center;
   transform-origin: left center;
-  /* font-weight: 400; */
 }
 
 .DoneContent-item-title {
   display: flex;
   align-items: center;
+  text-decoration: line-through;
 }
 
 .TodoContent-item-btns,

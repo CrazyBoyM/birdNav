@@ -17,7 +17,7 @@
   width: fit-content;
   height: 63px;
   background-color: var(--AppList-background);
-  backdrop-filter: blur(3.6px);
+  backdrop-filter: blur(9px);
   border-radius: 19.6px;
   transition: all 0.1s ease-in-out;
 }
@@ -35,7 +35,7 @@
   width: 39px;
   height: fit-content;
   background-color: var(--AppList-background);
-  backdrop-filter: blur(3.6px);
+  backdrop-filter: blur(9px);
   border-radius: 19.6px;
 }
 
@@ -51,8 +51,9 @@
   padding: 6.9px;
   width: 30px;
   height: 30px;
-  background: rgb(228, 226, 226, .6);
+  background: rgb(228, 226, 236, .6);
   border-radius: 50%;
+  backdrop-filter: blur(6px);
 }
 .AppList-bottom > .AppList-app:hover {
   margin: 13px 12px;
