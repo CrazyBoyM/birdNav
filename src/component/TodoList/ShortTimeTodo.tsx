@@ -107,7 +107,7 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
 
   return (
     <section className="todo-header">
-      <span className="todo-header-title">Recent</span>
+      <span className="todo-header-title">待办清单</span>
       <section className="todo-header-btns">
         <section
           className={resolveClasses(
@@ -116,7 +116,7 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
           )}
           onClick={() => setType("todo")}
         >
-          Todo
+          当前
         </section>
         <section
           className={resolveClasses(
@@ -125,7 +125,7 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
           )}
           onClick={() => setType("done")}
         >
-          Done
+          过去
         </section>
       </section>
     </section>

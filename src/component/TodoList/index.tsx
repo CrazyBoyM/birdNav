@@ -5,8 +5,8 @@ import "./index.css";
 const TodoList = () => {
   return (
     <div className="todo-container rowcenter">
-      <LongTimeTodo></LongTimeTodo>
       <ShortTimeTodo></ShortTimeTodo>
+      <LongTimeTodo></LongTimeTodo>
     </div>
   );
 };

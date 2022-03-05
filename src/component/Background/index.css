@@ -9,10 +9,11 @@
   background-size: cover;
 }
 .changeBg {
+  box-sizing: border-box;
   margin: 15px;
   position: fixed;
   right: 0;
-  top: 0;
+  bottom: 6px;
   color: aliceblue;
   cursor: pointer;
 }

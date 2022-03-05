@@ -111,7 +111,7 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
 
   return (
     <section className="todo-header">
-      <span className="todo-header-title">Long-term</span>
+      <span className="todo-header-title">计划目标</span>
       <section className="todo-header-btns">
         <section
           className={resolveClasses(
@@ -120,7 +120,7 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
           )}
           onClick={() => setType("todo")}
         >
-          Todo
+          目标
         </section>
         <section
           className={resolveClasses(
@@ -129,7 +129,7 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
           )}
           onClick={() => setType("done")}
         >
-          Done
+          达成
         </section>
       </section>
     </section>
@@ -188,7 +188,7 @@ const TodoContent: React.FC<TodoContentProps> = (props) => {
         <input
           className={text.length > 0 ? "input-active" : "input-default"}
           type="text"
-          placeholder="something"
+          placeholder="dream"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />

@@ -13,10 +13,8 @@
   border-radius: 18px 0;
   background-color: var(--TodoList-background);
   box-shadow: rgba(0, 0, 0, 0.363) 0px 0px 10px;
+  /* backdrop-filter: blur(6px); */
 }
-/* .todo:nth-child(2) {
-  border-radius: 0 36px 36px 0;
-} */
 
 .todo-header {
   box-sizing: border-box;
@@ -29,8 +27,7 @@
 .todo-header-title {
   color: #eee;
   padding: 23px;
-  font-size: 26px;
-  font-style: italic;
+  font-size: 20px;
   letter-spacing: 1.3px;
 }
 
@@ -44,19 +41,16 @@
   width: 60px;
   height: 36px;
   color: #fff;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.3);
   transition: background 0.2s 0.1s ease;
+  cursor: pointer;
 }
 .todo-header-btn:nth-child(1) {
-  border-radius: 4px 0 0 4px;
-}
-.todo-header-btn:nth-child(3) {
-  border-radius: 0 4px 4px 0;
+  border-radius: 2px 0 0 6px;
 }
 
 .todo-header-btn.active {
-  background-color: rgba(255, 255, 255, 0.6);
-  /* font-weight: ; */
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .TodoContent,
@@ -87,12 +81,6 @@
   justify-content: space-between;
   transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
   font-size: 15px;
-}
-.TodoContent-item:hover .TodoContent-item-title,
-.DoneContent-item:hover .TodoContent-item-title {
-  color: var(--highlight-text);
-  transform: scale(1.05);
-  transition: ease-in-out 0.12s;
 }
 
 .TodoContent-item-title,

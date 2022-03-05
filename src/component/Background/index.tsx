@@ -2,6 +2,10 @@ import { useState, useLayoutEffect } from "react"
 import ReactDOM from "react-dom"
 import './index.css'
 
+export const uploadImg = () => {
+  (document.getElementById('bgFile') as any).click();
+}
+
 export const Background = () => {
   const [style, setStyle] = useState({});
   useLayoutEffect(() => {
@@ -16,7 +20,7 @@ export const Background = () => {
   }
   const changepic = () => {
     const reads = new FileReader();
-    const f = (document.getElementById('file') as any).files[0]
+    const f = (document.getElementById('bgFile') as any).files[0]
     if (f.size > 4000000) {
       alert('图片不能大于4m')
       return
@@ -28,14 +32,12 @@ export const Background = () => {
       setBackground()
     };
   }
-  const uploadImg = () => {
-    (document.getElementById('file') as any).click();
-  }
-  const curDom = ReactDOM.createPortal(<div className="changeBg" onClick={uploadImg}>切换壁纸</div>, document.body)
+  
+  // const curDom = ReactDOM.createPortal(<div className="changeBg" onClick={uploadImg}>切换壁纸</div>, document.body)
   return (
     <section className="bg" style={style}>
-      {curDom}
-      <input type="file" id="file" accept="image/*" style={{ display: 'none' }} onChange={changepic} />
+      {/* {curDom} */}
+      <input type="file" id="bgFile" accept="image/*" style={{ display: 'none' }} onChange={changepic} />
       {/* <canvas id="bg-canvas" className="bg"></canvas>
       <video
         id="bg-video"

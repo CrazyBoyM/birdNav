@@ -15,11 +15,12 @@
   background-color: var(--SearchBar-background);
   border: 2px transparent solid;
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.363) 0px 0px 10px;
   transition: border 0.2s ease;
 }
 
 .SearchBar.active {
-  border: 2px rgba(255, 255, 255, 0.72) solid;
+  box-shadow: #eee 0px 0px 6px;
 }
 .SearchBar > form {
   display: flex;

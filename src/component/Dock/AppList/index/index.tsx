@@ -17,7 +17,7 @@ import {
 } from "react";
 import LoImage from "./LoImage";
 
-export const AppList = () => {
+const AppList = () => {
   // 内置应用列表属于不可删改的应用
   // const [preAppList, setPreAppList] = useState([])
   // todo: 网址文件夹管理器（）子应用、小游戏
@@ -111,7 +111,7 @@ export const AppList = () => {
   return (
     <>
       <div id="App-window"></div>
-      <section className="AppList-bottom">
+      <section className="AppList">
         <div
           className="AppList-app center"
           onClick={() => {}}
@@ -163,3 +163,5 @@ export const AppList = () => {
     </>
   );
 };
+
+export default AppList

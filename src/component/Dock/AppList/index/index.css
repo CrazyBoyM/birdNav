@@ -1,0 +1,36 @@
+#App-window {
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  top: 0;
+}
+
+.AppList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.AppList-app {
+  margin: 13px 0;
+  width: 60px;
+  transition: all 0.19s ease-out;
+  cursor: pointer;
+}
+.AppList-app > img,
+.AppList-app > span {
+  display: inline-block;
+  padding: 6.9px;
+  width: 30px;
+  height: 30px;
+  background: rgb(228, 226, 236, .9);
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+}
+.AppList > .AppList-app:hover {
+  margin: 13px 12px;
+  padding-bottom: 23px;
+}
