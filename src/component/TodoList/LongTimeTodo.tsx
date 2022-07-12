@@ -111,7 +111,7 @@ const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
 
   return (
     <section className="todo-header">
-      <span className="todo-header-title">计划目标</span>
+      <span className="todo-header-title">我的目标</span>
       <section className="todo-header-btns">
         <section
           className={resolveClasses(

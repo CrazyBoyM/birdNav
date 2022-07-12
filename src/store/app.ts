@@ -15,7 +15,7 @@ const defaultUserAppList = [
     name: "代码练习场",
     link: "http://code.ip3x.com",
     logo: "https://haut-online-ide.vercel.app/favicon.ico",
-    type: "outer",
+    type: "inner",
     width: 1024,
     height: 635,
     x: 245,
