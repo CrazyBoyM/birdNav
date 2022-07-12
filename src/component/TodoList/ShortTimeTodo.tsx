@@ -45,7 +45,7 @@ const ShortTimeTodo = () => {
     const newTodoList = todoList.filter(
       (todo: TodoItem) => todo.id !== item.id
     );
-    const newDoneList = [
+    const newDoneList: any = [
       {
         ...item,
         doneTime: new Date().getTime(),

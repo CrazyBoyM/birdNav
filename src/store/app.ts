@@ -13,7 +13,7 @@ const defaultUserAppList = [
   {
     id: "xfghfjytktdfgfht",
     name: "代码练习场",
-    link: "http://code.ip3x.com",
+    link: "https://code.ip3x.com",
     logo: "https://haut-online-ide.vercel.app/favicon.ico",
     type: "inner",
     width: 1024,
