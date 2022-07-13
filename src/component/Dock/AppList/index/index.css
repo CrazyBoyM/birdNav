@@ -28,6 +28,7 @@
   background: rgb(228, 226, 236, 0.9);
   border-radius: 50%;
   backdrop-filter: blur(6px);
+  overflow: hidden;
 }
 .AppList-app-name {
   position: absolute;
