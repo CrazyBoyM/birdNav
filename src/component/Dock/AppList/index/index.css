@@ -20,17 +20,37 @@
   transition: all 0.19s ease-out;
   cursor: pointer;
 }
-.AppList-app > img,
-.AppList-app > span {
+.AppList-app-logo {
   display: inline-block;
   padding: 6.9px;
   width: 30px;
   height: 30px;
-  background: rgb(228, 226, 236, .9);
+  background: rgb(228, 226, 236, 0.9);
   border-radius: 50%;
   backdrop-filter: blur(6px);
 }
+.AppList-app-name {
+  position: absolute;
+  top: -25px;
+  left: 10px;
+  width: max-content;
+  display: none;
+  font-size: 13px;
+  text-align: center;
+  color: #fff;
+  transition: all 0.19s ease-out;
+  cursor: pointer;
+}
+
 .AppList > .AppList-app:hover {
   margin: 13px 12px;
   padding-bottom: 23px;
+}
+
+.AppList > .AppList-app:hover > .AppList-app-name {
+  display: block;
+}
+
+.AppList > .AppList-app > .AppList-app-name:hover {
+  background-color: var(--Dock-background);
 }

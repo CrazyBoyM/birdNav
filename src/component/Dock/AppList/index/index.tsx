@@ -121,6 +121,7 @@ const AppList = () => {
           onMouseMove={appMouseMove}
         >
           <SettingOne
+            className="AppList-app-logo"
             theme="outline"
             size="30"
             fill="slateblue"
@@ -142,6 +143,7 @@ const AppList = () => {
               onMouseLeave={appMouseLeave}
               onMouseMove={appMouseMove}
             >
+              <span className="AppList-app-name">{appData.name}</span>
               <LoImage
                 src={appData.logo}
                 alt={appData.name}
@@ -157,11 +159,17 @@ const AppList = () => {
           onMouseLeave={appMouseLeave}
           onMouseMove={appMouseMove}
         >
-          <AddOne theme="outline" size="30" fill="slateblue" strokeWidth={3} />
+          <AddOne
+            className="AppList-app-logo"
+            theme="outline"
+            size="30"
+            fill="slateblue"
+            strokeWidth={3}
+          />
         </div>
       </section>
     </>
   );
 };
 
-export default AppList
+export default AppList;
