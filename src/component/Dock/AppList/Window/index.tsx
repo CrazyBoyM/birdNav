@@ -315,6 +315,7 @@ const Window = (props: any) => {
         id="demo"
         onMouseDown={moveWindow}
       >
+        <img src={appData.logo} alt={appData.name} className="Logo" />
         <div className="Title">{appData.name}</div>
         <div className="Menu">
           <a onClick={foldWindow}>

@@ -188,7 +188,7 @@ const TodoContent: React.FC<TodoContentProps> = (props) => {
         <input
           className={text.length > 0 ? "input-active" : "input-default"}
           type="text"
-          placeholder="dream"
+          placeholder="goal"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />

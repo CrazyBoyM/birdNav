@@ -20,6 +20,16 @@
   transition: all 0.19s ease-out;
   cursor: pointer;
 }
+.AppList-app-logo-container {
+  max-width: 50px;
+  max-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(228, 226, 236, 0.9);
+  border-radius: 50%;
+  overflow: hidden;
+}
 .AppList-app-logo {
   display: inline-block;
   padding: 6.9px;
@@ -28,7 +38,6 @@
   background: rgb(228, 226, 236, 0.9);
   border-radius: 50%;
   backdrop-filter: blur(6px);
-  overflow: hidden;
 }
 .AppList-app-name {
   position: absolute;

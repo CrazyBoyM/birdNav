@@ -15,7 +15,9 @@ export default function LoImage(props: PropsWithoutRef<LoImageProps>) {
     img.src = props.src;
     const imgLoad = () => {
       setRenderTarget(
-        <img className="AppList-app-logo" src={props.src} alt={props.alt} />
+        <div className="AppList-app-logo-container">
+          <img className="AppList-app-logo" src={props.src} alt={props.alt} />
+        </div>
       );
       setLoaded(true);
     };

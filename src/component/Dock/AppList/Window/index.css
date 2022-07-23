@@ -5,11 +5,17 @@
   position: absolute;
   min-width: 300px;
   min-height: 300px;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3),
-    0px 0px 6px rgba(0, 0, 0, 0.1) inset;
   animation: fade-in;
   animation-duration: 0.3s;
   transition: all 0.3s ease-in-out;
+  border-radius: 15px;
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
 }
 @keyframes fade-in {
   0% {
@@ -33,6 +39,14 @@
   background-color: var(--WindowHeader-background);
   backdrop-filter: blur(3.6px);
   cursor: move;
+}
+.AppWindowHeader .Logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
 .AppWindowHeader .Title {
 }
