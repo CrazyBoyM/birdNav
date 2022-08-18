@@ -147,7 +147,15 @@ const AppList = () => {
               <LoImage
                 src={appData.logo}
                 alt={appData.name}
-                feedback={<img src={errorImg} alt={appData.name} />}
+                feedback={
+                  <div className="AppList-app-logo-container">
+                    <img
+                      className="AppList-app-logo"
+                      src={errorImg}
+                      alt={appData.name}
+                    />
+                  </div>
+                }
               />
             </div>
           ))}
