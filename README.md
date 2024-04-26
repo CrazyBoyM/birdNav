@@ -3,11 +3,9 @@
 vercel地址: <https://bird-nav.vercel.app>  
 一颗追求极致简约、极致实用的心，做一个功能强大而简洁的网址导航  （仿桌面UI风格）  
 
-### 参与共建方式
+### 代码启动界面
+<img src="https://github.com/CrazyBoyM/birdNav/assets/35400185/e6c616a3-76ba-4b18-86f5-f1822ec567c3" width="600">
 
-为了减少代码冲突，尽量是fork然后提交pr，由审核员测试再合并。
-如果不会的话可以在分支开发完merge进主分支
-尽量不要在主分支直接改然后push哈~
 
 ### 已完成
 
