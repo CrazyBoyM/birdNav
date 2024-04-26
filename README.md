@@ -4,7 +4,7 @@ vercel地址: <https://bird-nav.vercel.app>
 一颗追求极致简约、极致实用的心，做一个功能强大而简洁的网址导航  （仿桌面UI风格）  
 
 ### 代码启动界面
-<img src="https://github.com/CrazyBoyM/birdNav/assets/35400185/e6c616a3-76ba-4b18-86f5-f1822ec567c3" width="600">
+<img src="https://github.com/CrazyBoyM/birdNav/assets/35400185/9cfbbbfd-8226-4ed4-89dc-83c05fd5dbda" width="600">
 
 
 ### 已完成
