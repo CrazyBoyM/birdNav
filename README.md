@@ -3,8 +3,24 @@
 vercel地址: <https://bird-nav.vercel.app>  
 一颗追求极致简约、极致实用的心，做一个功能强大而简洁的网址导航  （仿桌面UI风格）  
 
-### 代码启动界面
-<img src="https://github.com/CrazyBoyM/birdNav/assets/35400185/9cfbbbfd-8226-4ed4-89dc-83c05fd5dbda" width="600">
+## Demo预览
+### 1. 启动后界面 
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/d81c306c-25d6-4d39-89c7-d5d23da9b1e8">
+
+### 2. 搜索引擎切换
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/410b0529-e58b-411c-bda3-44a90cfec5db">
+
+### 3. 近期待办事项 & 长期目标卡片
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/eb9cf10c-9c83-4686-aa9a-5a261bf08c08">
+
+### 4. 打开应用窗口 （iframe)
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/192cb40f-f9fa-4474-ab55-102d37c43b58">
+
+### 5. 设置壁纸 （本地存储）
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/a9a76c3d-fc1a-453c-8222-680e82d1ed1a">
+
+### 6. 在线练习代码 ([haut-online-ide](https://github.com/CrazyBoyM/haut-online-ide))
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/45bd9231-3553-4233-9ec7-a31d042b7c2f">
 
 
 ### 已完成
